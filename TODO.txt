@@ -1,0 +1,13 @@
+TODO
+
+Orbital Frogger:
+	Orbital trajectories
+	Player jumping between
+	Obstacles
+	Win State
+
+Keepy up
+bounce bubble - digital hacky sac
+
+sonar bonar
+Still not fully figured out yet but noting anyway
