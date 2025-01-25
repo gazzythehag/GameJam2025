@@ -61,10 +61,8 @@ func get_closest_ring(inward: bool) -> Object:
 
 func is_ring_valid(inward: bool, target: Object) -> bool:
 	var parent_ring_index: int = rings_in_level.find(get_parent())
-	print(parent_ring_index)
 	for i in rings_in_level.size():
 		if rings_in_level[i] == target:
-			print(i)
 			if i < parent_ring_index and inward: return true
 			elif i > parent_ring_index and !inward: return true
 	return false
