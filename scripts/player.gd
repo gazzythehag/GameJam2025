@@ -9,6 +9,7 @@ var parent_ring: Object
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rings_in_level = get_tree().get_nodes_in_group("rings")
+	print(rings_in_level)
 	parent_ring = get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,10 +27,7 @@ func _input(event):
 		jump_orbit_outward()
 
 func jump_orbit_inward(): 
-	## i don't like that these two methods are so similar
-	##	but I'm still trying to hash out the details
-	var closest_ring: Object = get_closest_ring()
-	#print("Distance between " + str(closest_ring.global_position) + " and " + str(global_position) + " is " + str(global_position.distance_to(closest_ring.global_position)))
+	var closest_ring: Object = get_closest_ring(true)
 	var line_to_me = closest_ring.global_position - global_position
 	if (line_to_me.y < 0):
 		loop_progress = atan(line_to_me.x/line_to_me.y)
@@ -38,20 +36,17 @@ func jump_orbit_inward():
 	if closest_ring != parent_ring:
 		reparent(closest_ring)
 		parent_ring = closest_ring
-	#print(parent_ring)
 
 func jump_orbit_outward():
-	var closest_ring: Object = get_closest_ring()
+	var closest_ring: Object = get_closest_ring(false)
 	var line_to_me = closest_ring.global_position - global_position
 	if (line_to_me.y < 0):
 		loop_progress = atan(line_to_me.x/line_to_me.y)
 	else:
 		loop_progress = atan(line_to_me.x/line_to_me.y) + PI
 	reparent(closest_ring)
-	
-	#print(parent_ring)
 
-func get_closest_ring() -> Object:
+func get_closest_ring(inward: bool) -> Object:
 	var closest_ring: Object
 	var closest: float = 2000000 #temp, just trying to puzzle this out
 	closest_ring = get_parent()
@@ -59,6 +54,17 @@ func get_closest_ring() -> Object:
 		if ring != get_parent():
 			var distance = abs((ring.global_position - global_position).length() - ring.orbit_radius)
 			if distance < closest and distance < max_distance:
-				closest = distance
-				closest_ring = ring
+				if is_ring_valid(inward, ring):
+					closest = distance
+					closest_ring = ring
 	return closest_ring
+
+func is_ring_valid(inward: bool, target: Object) -> bool:
+	var parent_ring_index: int = rings_in_level.find(get_parent())
+	print(parent_ring_index)
+	for i in rings_in_level.size():
+		if rings_in_level[i] == target:
+			print(i)
+			if i < parent_ring_index and inward: return true
+			elif i > parent_ring_index and !inward: return true
+	return false
