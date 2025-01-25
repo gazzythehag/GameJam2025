@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Moon
 
 @export var max_distance: float # the max distance the node can be from an orbit
