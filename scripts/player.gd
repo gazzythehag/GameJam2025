@@ -8,16 +8,11 @@ var parent_ring: Object
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	rings_in_level = get_tree().get_nodes_in_group("rings")
-	print(rings_in_level)
+	rings_in_level = get_tree().get_nodes_in_group("rings") ## gets an array of all object in rings group
+	## if a ring is not in the group it is not counted as interactable
 	parent_ring = get_parent()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#print(get_relative_transform_to_parent(get_parent()).origin)
-#	pass
-
-func _draw():
+func _draw(): 
 	draw_circle(Vector2(0,0), radius, centre_colour)
 
 func _input(event):
@@ -44,7 +39,9 @@ func jump_orbit_outward():
 		loop_progress = atan(line_to_me.y/line_to_me.x)
 	else:
 		loop_progress = atan(line_to_me.y/line_to_me.x) + PI
-	reparent(closest_ring)
+	if closest_ring != parent_ring:
+		reparent(closest_ring)
+		parent_ring = closest_ring
 
 func get_closest_ring(inward: bool) -> Object:
 	var closest_ring: Object
