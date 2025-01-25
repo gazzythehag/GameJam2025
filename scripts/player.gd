@@ -52,7 +52,8 @@ func get_closest_ring(inward: bool) -> Object:
 	closest_ring = get_parent()
 	for ring in rings_in_level:
 		if ring != get_parent():
-			var distance = abs((ring.global_position - global_position).length() - ring.orbit_radius)
+			#var distance = abs((ring.global_position - global_position).length() - ring.orbit_radius)
+			var distance: float = abs((ring.get_closest_pos(global_position) - global_position).length())
 			if distance < closest and distance < max_distance:
 				if is_ring_valid(inward, ring):
 					closest = distance
@@ -61,10 +62,8 @@ func get_closest_ring(inward: bool) -> Object:
 
 func is_ring_valid(inward: bool, target: Object) -> bool:
 	var parent_ring_index: int = rings_in_level.find(get_parent())
-	print(parent_ring_index)
 	for i in rings_in_level.size():
 		if rings_in_level[i] == target:
-			print(i)
 			if i < parent_ring_index and inward: return true
 			elif i > parent_ring_index and !inward: return true
 	return false

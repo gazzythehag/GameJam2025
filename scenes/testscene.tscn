@@ -12,7 +12,8 @@ position = Vector2(400, 400)
 [node name="orbit" parent="moon_center" instance=ExtResource("2_vhqwi")]
 angular_speed = 1.0
 ellipse_a = 2.0
-ellipse_h = 1.0
+ellipse_b = 1.0
+ellipse_h = 0.5
 mode = 2
 
 [node name="moon_center" parent="moon_center/orbit" instance=ExtResource("1_qj3mv")]
@@ -21,6 +22,8 @@ position = Vector2(29.0973, -95.6731)
 [node name="orbit2" parent="moon_center/orbit/moon_center" instance=ExtResource("2_vhqwi")]
 orbit_radius = 45
 angular_speed = 1.0
+ellipse_a = 1.0
+ellipse_b = 1.0
 mode = 1
 
 [node name="moon_center" parent="moon_center/orbit/moon_center/orbit2" instance=ExtResource("1_qj3mv")]
@@ -29,7 +32,9 @@ position = Vector2(-35.8344, -27.2194)
 [node name="orbit3" parent="moon_center" instance=ExtResource("2_vhqwi")]
 orbit_radius = 175
 orbit_colour = Color(0.811765, 0, 0, 1)
-angular_speed = 0.75
+angular_speed = 1.0
+ellipse_a = 0.5
+ellipse_b = 1.0
 mode = 1
 
 [node name="moon_center" parent="moon_center/orbit3" instance=ExtResource("1_qj3mv")]
