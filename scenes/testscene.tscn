@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://dec8ek4u4n27g"]
+[gd_scene load_steps=3 format=3 uid="uid://dec8ek4u4n27g"]
+
+[ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/jupiter_map.tscn" id="1_ue68f"]
+[ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/ring.tscn" id="2_vhqwi"]
 
 [node name="testscene" type="Node2D"]
+
+[node name="orbital_center" parent="." instance=ExtResource("1_ue68f")]
+position = Vector2(400, 400)
+
+[node name="first_orbit" parent="orbital_center" instance=ExtResource("2_vhqwi")]
+orbit_colour = Color(1, 1, 1, 1)
+
+[node name="orbital_center" parent="orbital_center/first_orbit" instance=ExtResource("1_ue68f")]
+
+[node name="first_orbit" parent="orbital_center/first_orbit/orbital_center" instance=ExtResource("2_vhqwi")]
+orbit_radius = 50
+orbit_colour = Color(1, 1, 1, 1)
+
+[node name="orbital_center" parent="orbital_center/first_orbit/orbital_center/first_orbit" instance=ExtResource("1_ue68f")]
+centre_colour = Color(1.44392e-06, 0.605027, 0.327596, 1)

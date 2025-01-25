@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="BubbleGodGGJ2025"
+run/main_scene="res://scenes/testscene.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://resources/icon.svg"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=800
 
 [rendering]
 
