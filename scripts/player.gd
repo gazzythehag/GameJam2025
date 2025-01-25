@@ -31,10 +31,10 @@ func jump_orbit_inward():
 	var closest_ring: Object = get_closest_ring()
 	#print("Distance between " + str(closest_ring.global_position) + " and " + str(global_position) + " is " + str(global_position.distance_to(closest_ring.global_position)))
 	var line_to_me = closest_ring.global_position - global_position
-	if (line_to_me.y < 0):
-		loop_progress = atan(line_to_me.x/line_to_me.y)
+	if (line_to_me.x < 0):
+		loop_progress = atan(line_to_me.y/line_to_me.x)
 	else:
-		loop_progress = atan(line_to_me.x/line_to_me.y) + PI
+		loop_progress = atan(line_to_me.y/line_to_me.x) + PI
 	if closest_ring != parent_ring:
 		reparent(closest_ring)
 		parent_ring = closest_ring
@@ -43,10 +43,10 @@ func jump_orbit_inward():
 func jump_orbit_outward():
 	var closest_ring: Object = get_closest_ring()
 	var line_to_me = closest_ring.global_position - global_position
-	if (line_to_me.y < 0):
-		loop_progress = atan(line_to_me.x/line_to_me.y)
+	if (line_to_me.x < 0):
+		loop_progress = atan(line_to_me.y/line_to_me.x)
 	else:
-		loop_progress = atan(line_to_me.x/line_to_me.y) + PI
+		loop_progress = atan(line_to_me.y/line_to_me.x) + PI
 	reparent(closest_ring)
 	
 	#print(parent_ring)

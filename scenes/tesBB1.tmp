@@ -11,8 +11,6 @@ position = Vector2(400, 400)
 
 [node name="orbit" parent="moon_center" instance=ExtResource("2_vhqwi")]
 angular_speed = 1.0
-ellipse_a = 2.0
-ellipse_h = 1.0
 mode = 2
 
 [node name="moon_center" parent="moon_center/orbit" instance=ExtResource("1_qj3mv")]

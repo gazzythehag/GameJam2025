@@ -8,6 +8,8 @@ class_name OrbitRing
 
 @export var ellipse_a: float = 1.0
 @export var ellipse_b: float = 1.0
+@export var ellipse_h: float = 0.0
+@export var ellipse_k: float = 0.0
 ## var loop_progress: float = 0 <-- MOVED TO MOONS
 
 enum MODES { FIXED, CLOCKWISE, COUNTERCLOCKWISE }
@@ -24,7 +26,11 @@ func _ready() -> void:
 	set_moon_pos()
 
 func _draw() -> void:
-	draw_circle(Vector2(0,0), orbit_radius, orbit_colour, false, 1.0)
+	var coords_ellipse : Array = []
+	for t in 1000:
+		coords_ellipse.append(orbit_radius * Vector2(ellipse_a * cos(2*PI*t/1000) + ellipse_h, ellipse_b * sin(2*PI*t/1000) + ellipse_k))
+	draw_polyline(coords_ellipse, orbit_colour, -1,true)
+	#draw_circle(Vector2(0,0), orbit_radius, orbit_colour, false, 1.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,9 +54,9 @@ func move_counterclockwise(delta: float):
 
 func set_moon_pos():
 	for moon in moons:
-		moon.position = orbit_radius * Vector2(ellipse_a * sin(moon.loop_progress), ellipse_b * cos(moon.loop_progress))
+		moon.position = orbit_radius * Vector2(ellipse_a * cos(moon.loop_progress) + ellipse_h, ellipse_b * sin(moon.loop_progress) + ellipse_k)
 
-func get_closest_pos(loop_progress: float) -> Vector2:
-	var pos = orbit_radius * Vector2(sin(loop_progress), cos(loop_progress))
-	print("returned pos is " + str(pos))
-	return pos
+#func get_closest_pos(other_pos: Vector2) -> Vector2:
+#	pass
+	#var pos = orbit_radius * Vector2(cos(loop_progress), sin(loop_progress))
+	#return pos
