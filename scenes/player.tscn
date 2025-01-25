@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://8gchishb6nb4"]
+
+[ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/moon.tscn" id="1_42lm8"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_pgpta"]
+
+[node name="Player" instance=ExtResource("1_42lm8")]
+script = ExtResource("1_pgpta")
+centre_colour = Color(1, 1, 1, 1)

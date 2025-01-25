@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsdls4tnexgo8"]
 
-[ext_resource type="Script" path="res://scenes/ring.gd" id="1_t14pn"]
+[ext_resource type="Script" path="res://scripts/ring.gd" id="1_t14pn"]
 
-[node name="first_orbit" type="Node2D"]
+[node name="orbit" type="Node2D" groups=["rings"]]
 script = ExtResource("1_t14pn")
