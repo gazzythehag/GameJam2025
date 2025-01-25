@@ -1,10 +1,18 @@
 TODO
 
 Orbital Frogger:
-	Orbital trajectories
-	Player jumping between
-	Obstacles
+	Orbital trajectories -- DONE, kinda
+	Player jumping between -- DONE, kinda
+		- Fix suborbital jumps
+		- create some kind of "win" condition
+		- maybe have speed control
+		- implement elliptical orbits
+	Obstacles -- in progress
 	Win State
+	Creating actual levels
+	implement the textures
+		-- rotoscope our assets
+	
 
 Keepy up
 bounce bubble - digital hacky sac
