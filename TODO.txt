@@ -3,7 +3,7 @@ TODO
 Orbital Frogger:
 	Orbital trajectories -- DONE, kinda
 	Player jumping between -- DONE, kinda
-		- Fix suborbital jumps
+		- Fix suborbital jumps -- DONE, kinda
 		- create some kind of "win" condition
 		- maybe have speed control
 		- implement elliptical orbits
