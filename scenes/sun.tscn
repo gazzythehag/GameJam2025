@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc2xk8gfd1h0c"]
+
+[ext_resource type="Script" path="res://scenes/sun.gd" id="1_5u2rh"]
+
+[node name="sun" type="Node2D"]
+script = ExtResource("1_5u2rh")
+centre_colour = Color(0.233148, 0.457125, 1, 1)
