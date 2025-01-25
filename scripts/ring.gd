@@ -47,4 +47,6 @@ func set_moon_pos():
 		moon.position = orbit_radius * Vector2(sin(moon.loop_progress), cos(moon.loop_progress))
 
 func get_closest_pos(loop_progress: float) -> Vector2:
-	return orbit_radius * Vector2(sin(loop_progress), cos(loop_progress))
+	var pos = orbit_radius * Vector2(sin(loop_progress), cos(loop_progress))
+	print("returned pos is " + str(pos))
+	return pos

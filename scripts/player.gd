@@ -1,12 +1,15 @@
 @tool
 extends Moon
 
-var rings_in_level: Array:
-	get: return get_tree().get_nodes_in_group("rings")
+@export var max_distance: float # the max distance the node can be from an orbit
+
+var rings_in_level: Array
+var parent_ring: Object
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	rings_in_level = get_tree().get_nodes_in_group("rings")
+	parent_ring = get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -17,15 +20,38 @@ func _draw():
 	draw_circle(Vector2(0,0), radius, centre_colour)
 
 func _input(event):
-	if event.is_action_pressed("jump"):
-		jump_orbit()
+	if event.is_action_pressed("ui_up"):
+		jump_orbit_forward()
+	if event.is_action_pressed("ui_down"):
+		jump_orbit_backward()
 
-func jump_orbit():
-	var closest_ring: Object
-	var closest: float = 200000 #temp, just trying to puzzle this out
-	for ring in rings_in_level:
-		var distance = position.distance_to(ring.get_closest_pos(loop_progress))
-		if distance < closest and ring != get_parent():
-			closest = distance
-			closest_ring = ring
+func jump_orbit_forward(): 
+	## i don't like that these two methods are so similar
+	##	but I'm still trying to hash out the details
+	var closest_ring: Object = get_closest_ring()
+	print("Distance between " + str(closest_ring.global_position) + " and " + str(global_position) + " is " + str(global_position.distance_to(closest_ring.global_position)))
+	if closest_ring != parent_ring:
+		reparent(closest_ring)
+		parent_ring = closest_ring
+	#print(parent_ring)
+
+func jump_orbit_backward():
+	var closest_ring: Object = get_closest_ring()
 	reparent(closest_ring)
+	#print(parent_ring)
+
+func get_closest_ring() -> Object:
+	var closest_ring: Object
+	var closest: float = 2000000 #temp, just trying to puzzle this out
+	for ring in rings_in_level:
+		if ring != get_parent():
+			print("player position is " + str(position))
+			var distance = ring.get_closest_pos(loop_progress).distance_to(position)
+			print("closest point is " + str(distance) + " units away")
+			if distance < closest and distance < max_distance:
+				closest = distance
+				closest_ring = ring
+				print("closest ring is " + closest_ring.name)
+			else:
+				closest_ring = get_parent()
+	return closest_ring

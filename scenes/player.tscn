@@ -5,4 +5,5 @@
 
 [node name="Player" instance=ExtResource("1_42lm8")]
 script = ExtResource("1_pgpta")
+max_distance = null
 centre_colour = Color(1, 1, 1, 1)
