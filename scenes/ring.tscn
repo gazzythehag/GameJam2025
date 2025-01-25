@@ -4,3 +4,5 @@
 
 [node name="orbit" type="Node2D" groups=["rings"]]
 script = ExtResource("1_t14pn")
+ellipse_a = null
+ellipse_b = null

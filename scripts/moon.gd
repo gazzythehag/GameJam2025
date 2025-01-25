@@ -23,6 +23,9 @@ func _draw():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	normalize_loop_progress()
+
+func normalize_loop_progress() -> void:
 	if loop_progress > 2*PI:
 		loop_progress -= 2*PI
 	elif loop_progress < 0:
