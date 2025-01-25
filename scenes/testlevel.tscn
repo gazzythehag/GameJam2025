@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg1t78weov6a1"]
+[gd_scene load_steps=6 format=3 uid="uid://dg1t78weov6a1"]
 
+[ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/sun.tscn" id="1_pagwg"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/moon.tscn" id="1_t8otd"]
 [ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/false_ring.tscn" id="2_d1yrw"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/ring.tscn" id="2_tk4fv"]
@@ -7,42 +8,48 @@
 
 [node name="testscene" type="Node2D"]
 
-[node name="moon_center" parent="." instance=ExtResource("1_t8otd")]
+[node name="sun" parent="." instance=ExtResource("1_pagwg")]
 position = Vector2(400, 400)
 
-[node name="orbit" parent="moon_center" instance=ExtResource("2_tk4fv")]
-orbit_radius = 40
+[node name="orbit" parent="sun" instance=ExtResource("2_tk4fv")]
+orbit_radius = 10
+orbit_colour = Color(1, 0, 0, 1)
+
+[node name="orbit2" parent="sun" instance=ExtResource("2_tk4fv")]
+orbit_radius = 50
+orbit_colour = Color(0, 1, 0, 1)
+angular_speed = 1.0
+mode = 1
+
+[node name="moon_center" parent="sun/orbit2" instance=ExtResource("1_t8otd")]
+position = Vector2(-9.05102, -49.174)
+loop_progress = 4.53037
+
+[node name="nonorbit" parent="sun" instance=ExtResource("2_d1yrw")]
+orbit_colour = Color(0, 0, 0, 0.384314)
+angular_speed = 1.5
+mode = 2
+
+[node name="moon_center" parent="sun/nonorbit" instance=ExtResource("1_t8otd")]
+position = Vector2(-99.3382, 11.4856)
+loop_progress = 3.02648
+
+[node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("2_tk4fv")]
+orbit_radius = 24
 orbit_colour = Color(0, 0, 1, 1)
+angular_speed = 0.5
 mode = 1
 
-[node name="nonorbit" parent="moon_center" instance=ExtResource("2_d1yrw")]
-angular_speed = 1.0
+[node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("1_t8otd")]
+position = Vector2(-3.14933, -23.7925)
+loop_progress = 4.58079
+
+[node name="orbit3" parent="sun" instance=ExtResource("2_tk4fv")]
+orbit_radius = 150
+orbit_colour = Color(0, 1, 0, 1)
+angular_speed = 1.55
 mode = 1
 
-[node name="moon_center" parent="moon_center/nonorbit" instance=ExtResource("1_t8otd")]
-position = Vector2(-74.6884, 66.4955)
-
-[node name="orbit2" parent="moon_center/nonorbit/moon_center" instance=ExtResource("2_tk4fv")]
-orbit_radius = 45
-angular_speed = 1.0
-ellipse_a = 1.0
-ellipse_b = 1.0
-mode = 2
-
-[node name="moon_center" parent="moon_center/nonorbit/moon_center/orbit2" instance=ExtResource("1_t8otd")]
-position = Vector2(44.7379, 4.8501)
-
-[node name="orbit3" parent="moon_center" instance=ExtResource("2_tk4fv")]
-orbit_radius = 175
-orbit_colour = Color(0.811765, 0, 0, 1)
-angular_speed = 0.75
-ellipse_a = 1.0
-ellipse_b = 1.0
-mode = 2
-
-[node name="moon_center" parent="moon_center/orbit3" instance=ExtResource("1_t8otd")]
-position = Vector2(-83.136, -153.992)
-
-[node name="Player" parent="moon_center/orbit3" instance=ExtResource("3_5bim7")]
-position = Vector2(113.523, 133.183)
-max_distance = 70.0
+[node name="Player" parent="sun/orbit3" instance=ExtResource("3_5bim7")]
+position = Vector2(3.9299, -149.949)
+loop_progress = 168.101

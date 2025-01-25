@@ -37,11 +37,11 @@ func _draw() -> void:
 func _process(delta: float) -> void:
 	match mode:
 		MODES.FIXED:
-			pass
-		MODES.CLOCKWISE:
-			move_clockwise(delta)
 			set_moon_pos()
 		MODES.COUNTERCLOCKWISE:
+			move_clockwise(delta)
+			set_moon_pos()
+		MODES.CLOCKWISE:
 			move_counterclockwise(delta)
 			set_moon_pos()
 

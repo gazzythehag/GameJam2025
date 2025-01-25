@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc2xk8gfd1h0c"]
+[gd_scene load_steps=3 format=3 uid="uid://bc2xk8gfd1h0c"]
 
 [ext_resource type="Script" path="res://scripts/sun.gd" id="1_5u2rh"]
 
-[node name="sun" type="StaticBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2jin6"]
+radius = 8.60233
+
+[node name="Area2D" type="Area2D"]
 script = ExtResource("1_5u2rh")
-centre_colour = Color(0.233148, 0.457125, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2jin6")
