@@ -10,12 +10,16 @@ position = Vector2(400, 400)
 
 [node name="first_orbit" parent="orbital_center" instance=ExtResource("2_vhqwi")]
 orbit_colour = Color(1, 1, 1, 1)
+angular_speed = 1.0
+mode = 1
 
 [node name="orbital_center" parent="orbital_center/first_orbit" instance=ExtResource("1_ue68f")]
 
 [node name="first_orbit" parent="orbital_center/first_orbit/orbital_center" instance=ExtResource("2_vhqwi")]
 orbit_radius = 50
 orbit_colour = Color(1, 1, 1, 1)
+angular_speed = 1.0
+mode = 2
 
 [node name="orbital_center" parent="orbital_center/first_orbit/orbital_center/first_orbit" instance=ExtResource("1_ue68f")]
 centre_colour = Color(1.44392e-06, 0.605027, 0.327596, 1)

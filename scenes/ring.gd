@@ -4,6 +4,10 @@ extends Node2D
 @export var orbit_colour: Color
 @export var fixed: bool
 @export var angular_speed: float = 10
+
+enum MODES { FIXED, CLOCKWISE, COUNTERCLOCKWISE }
+@export var mode: MODES
+
 var loop_progress: float = 0
 
 var moons: Array:
@@ -20,6 +24,14 @@ func _draw() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	loop_progress += delta * angular_speed
-	for moon in moons:
-		moon.position = orbit_radius * Vector2(sin(loop_progress), cos(loop_progress))
+	match mode:
+		MODES.FIXED:
+			pass
+		MODES.CLOCKWISE:
+			loop_progress -= delta * angular_speed
+			for moon in moons:
+				moon.position = orbit_radius * Vector2(sin(loop_progress), cos(loop_progress))
+		MODES.COUNTERCLOCKWISE:
+			loop_progress += delta * angular_speed
+			for moon in moons:
+				moon.position = orbit_radius * Vector2(sin(loop_progress), cos(loop_progress))
