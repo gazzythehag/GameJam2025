@@ -12,9 +12,9 @@ func _ready() -> void:
 	parent_ring = get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+#func _process(delta: float) -> void:
 	#print(get_relative_transform_to_parent(get_parent()).origin)
-	pass
+#	pass
 
 func _draw():
 	draw_circle(Vector2(0,0), radius, centre_colour)
@@ -30,8 +30,11 @@ func jump_orbit_inward():
 	##	but I'm still trying to hash out the details
 	var closest_ring: Object = get_closest_ring()
 	#print("Distance between " + str(closest_ring.global_position) + " and " + str(global_position) + " is " + str(global_position.distance_to(closest_ring.global_position)))
-	var line_to_me = global_position - closest_ring.global_position
-	#loop_progress = asin(line_to_me.y)
+	var line_to_me = closest_ring.global_position - global_position
+	if (line_to_me.y < 0):
+		loop_progress = atan(line_to_me.x/line_to_me.y)
+	else:
+		loop_progress = atan(line_to_me.x/line_to_me.y) + PI
 	if closest_ring != parent_ring:
 		reparent(closest_ring)
 		parent_ring = closest_ring
@@ -39,8 +42,11 @@ func jump_orbit_inward():
 
 func jump_orbit_outward():
 	var closest_ring: Object = get_closest_ring()
-	var line_to_me = global_position - closest_ring.global_position
-	#loop_progress = asin(line_to_me.y)
+	var line_to_me = closest_ring.global_position - global_position
+	if (line_to_me.y < 0):
+		loop_progress = atan(line_to_me.x/line_to_me.y)
+	else:
+		loop_progress = atan(line_to_me.x/line_to_me.y) + PI
 	reparent(closest_ring)
 	
 	#print(parent_ring)
