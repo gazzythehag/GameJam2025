@@ -14,8 +14,7 @@ angular_speed = 1.0
 mode = 2
 
 [node name="moon_center" parent="moon_center/orbit" instance=ExtResource("1_qj3mv")]
-position = Vector2(-69.0522, -72.3311)
-loop_progress = 60.4525
+position = Vector2(29.0973, -95.6731)
 
 [node name="orbit2" parent="moon_center/orbit/moon_center" instance=ExtResource("2_vhqwi")]
 orbit_radius = 45
@@ -23,8 +22,7 @@ angular_speed = 1.0
 mode = 1
 
 [node name="moon_center" parent="moon_center/orbit/moon_center/orbit2" instance=ExtResource("1_qj3mv")]
-position = Vector2(6.22453, -44.5674)
-loop_progress = -9534.87
+position = Vector2(-35.8344, -27.2194)
 
 [node name="orbit3" parent="moon_center" instance=ExtResource("2_vhqwi")]
 orbit_radius = 175
@@ -33,10 +31,8 @@ angular_speed = 0.75
 mode = 1
 
 [node name="moon_center" parent="moon_center/orbit3" instance=ExtResource("1_qj3mv")]
-position = Vector2(174.451, -13.8547)
-loop_progress = -8336.14
+position = Vector2(-112.949, 133.669)
 
 [node name="Player" parent="moon_center/orbit3" instance=ExtResource("3_xjd0h")]
-position = Vector2(-167.688, 50.0575)
+position = Vector2(82.4732, -154.348)
 max_distance = 70.0
-loop_progress = -7805.0

@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node2D
 class_name Moon
 
@@ -16,8 +16,6 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if loop_progress > 2*PI:
-		loop_progress -= 2*PI
 	queue_redraw()
 
 func _draw():
@@ -25,4 +23,7 @@ func _draw():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if loop_progress > 2*PI:
+		loop_progress -= 2*PI
+	elif loop_progress < 0:
+		loop_progress += 2*PI
