@@ -7,7 +7,6 @@ class_name Moon
 @export var loop_progress: float = 0:
 	get: return loop_progress
 	set(value): loop_progress = value
-## TODO: Normalize loop progress to avoid decimal error
 
 var rings: Array:
 	get: return get_children()
@@ -17,6 +16,8 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if loop_progress > 2*PI:
+		loop_progress -= 2*PI
 	queue_redraw()
 
 func _draw():

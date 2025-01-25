@@ -21,37 +21,38 @@ func _draw():
 
 func _input(event):
 	if event.is_action_pressed("ui_up"):
-		jump_orbit_forward()
+		jump_orbit_inward()
 	if event.is_action_pressed("ui_down"):
-		jump_orbit_backward()
+		jump_orbit_outward()
 
-func jump_orbit_forward(): 
+func jump_orbit_inward(): 
 	## i don't like that these two methods are so similar
 	##	but I'm still trying to hash out the details
 	var closest_ring: Object = get_closest_ring()
-	print("Distance between " + str(closest_ring.global_position) + " and " + str(global_position) + " is " + str(global_position.distance_to(closest_ring.global_position)))
+	#print("Distance between " + str(closest_ring.global_position) + " and " + str(global_position) + " is " + str(global_position.distance_to(closest_ring.global_position)))
+	var line_to_me = global_position - closest_ring.global_position
+	#loop_progress = asin(line_to_me.y)
 	if closest_ring != parent_ring:
 		reparent(closest_ring)
 		parent_ring = closest_ring
 	#print(parent_ring)
 
-func jump_orbit_backward():
+func jump_orbit_outward():
 	var closest_ring: Object = get_closest_ring()
+	var line_to_me = global_position - closest_ring.global_position
+	#loop_progress = asin(line_to_me.y)
 	reparent(closest_ring)
+	
 	#print(parent_ring)
 
 func get_closest_ring() -> Object:
 	var closest_ring: Object
 	var closest: float = 2000000 #temp, just trying to puzzle this out
+	closest_ring = get_parent()
 	for ring in rings_in_level:
 		if ring != get_parent():
-			print("player position is " + str(position))
-			var distance = ring.get_closest_pos(loop_progress).distance_to(position)
-			print("closest point is " + str(distance) + " units away")
+			var distance = abs((ring.global_position - global_position).length() - ring.orbit_radius)
 			if distance < closest and distance < max_distance:
 				closest = distance
 				closest_ring = ring
-				print("closest ring is " + closest_ring.name)
-			else:
-				closest_ring = get_parent()
 	return closest_ring
