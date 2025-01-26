@@ -38,17 +38,17 @@ orbit_radius = 50
 mode = 1
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_08i4r")]
-position = Vector2(28.2191, 41.2757)
-loop_progress = 0.971111
+position = Vector2(48.5866, 11.8044)
+loop_progress = 0.238338
 
 [node name="orbit3" parent="sun" instance=ExtResource("3_emfn0")]
 orbit_radius = 255
 angular_speed = 2.0
-mode = 1
+mode = 2
 
 [node name="moon_center" parent="sun/orbit3" instance=ExtResource("5_08i4r")]
-position = Vector2(181.036, -179.586)
-loop_progress = 5.50181
+position = Vector2(-119.459, -225.288)
+loop_progress = 4.22484
 
 [node name="orbit4" parent="sun" instance=ExtResource("3_emfn0")]
 orbit_radius = 294
@@ -56,8 +56,8 @@ angular_speed = 2.0
 mode = 1
 
 [node name="moon_center" parent="sun/orbit4" instance=ExtResource("5_08i4r")]
-position = Vector2(-100.724, 276.208)
-loop_progress = 1.92048
+position = Vector2(217.239, -198.099)
+loop_progress = 5.54384
 
 [node name="orbit5" parent="sun" instance=ExtResource("3_emfn0")]
 orbit_radius = 322
@@ -65,8 +65,8 @@ angular_speed = 2.0
 mode = 1
 
 [node name="moon_center" parent="sun/orbit5" instance=ExtResource("5_08i4r")]
-position = Vector2(-209.388, 244.624)
-loop_progress = 2.27874
+position = Vector2(298.9, -119.762)
+loop_progress = 5.9021
 
 [node name="orbit6" parent="sun" instance=ExtResource("3_emfn0")]
 orbit_radius = 359
@@ -74,5 +74,5 @@ angular_speed = 2.0
 mode = 1
 
 [node name="moon_center" parent="sun/orbit6" instance=ExtResource("5_08i4r")]
-position = Vector2(-334.464, -130.441)
-loop_progress = 3.51345
+position = Vector2(235.956, 270.566)
+loop_progress = 0.853621

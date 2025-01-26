@@ -31,8 +31,8 @@ angular_speed = 1.0
 mode = 2
 
 [node name="moon_center" parent="sun/orbit3" instance=ExtResource("3_w16ky")]
-position = Vector2(99.9088, -89.2986)
-loop_progress = 5.55381
+position = Vector2(131.009, 28.1541)
+loop_progress = 0.211682
 
 [node name="orbit4" parent="sun" instance=ExtResource("2_ke45q")]
 orbit_radius = 164
@@ -40,8 +40,8 @@ angular_speed = 1.0
 mode = 1
 
 [node name="moon_center" parent="sun/orbit4" instance=ExtResource("3_w16ky")]
-position = Vector2(123.849, 107.506)
-loop_progress = 0.714874
+position = Vector2(159.823, -36.7785)
+loop_progress = 6.057
 
 [node name="orbit5" parent="sun" instance=ExtResource("2_ke45q")]
 orbit_radius = 213
@@ -49,8 +49,8 @@ angular_speed = 1.3
 mode = 2
 
 [node name="moon_center" parent="sun/orbit5" instance=ExtResource("3_w16ky")]
-position = Vector2(-85.1749, -195.229)
-loop_progress = 4.301
+position = Vector2(211.189, -27.7159)
+loop_progress = 6.15269
 
 [node name="orbit6" parent="sun" instance=ExtResource("2_ke45q")]
 orbit_radius = 250
@@ -58,8 +58,8 @@ angular_speed = 3.0
 mode = 2
 
 [node name="moon_center" parent="sun/orbit6" instance=ExtResource("3_w16ky")]
-position = Vector2(156.718, -194.78)
-loop_progress = 5.38992
+position = Vector2(-87.8593, 234.053)
+loop_progress = 1.9299
 
 [node name="orbit7" parent="sun" instance=ExtResource("2_ke45q")]
 orbit_radius = 284
@@ -67,8 +67,8 @@ angular_speed = 2.0
 mode = 1
 
 [node name="moon_center" parent="sun/orbit7" instance=ExtResource("3_w16ky")]
-position = Vector2(281.603, 36.8242)
-loop_progress = 0.130029
+position = Vector2(-51.2058, -279.346)
+loop_progress = 4.5311
 
 [node name="orbit8" parent="sun" instance=ExtResource("2_ke45q")]
 orbit_radius = 319
@@ -76,9 +76,18 @@ angular_speed = 2.0
 mode = 2
 
 [node name="moon_center" parent="sun/orbit8" instance=ExtResource("3_w16ky")]
-position = Vector2(-280.502, -151.92)
-loop_progress = 3.63797
+position = Vector2(230.538, -220.484)
+loop_progress = 5.52007
 
-[node name="Player" parent="sun/orbit8" instance=ExtResource("5_tb0t2")]
-position = Vector2(-280.575, -151.785)
-loop_progress = -385.92
+[node name="orbit10" parent="sun" instance=ExtResource("2_ke45q")]
+orbit_radius = 345
+angular_speed = 0.1
+mode = 1
+
+[node name="moon_center" parent="sun/orbit10" instance=ExtResource("3_w16ky")]
+position = Vector2(338.763, 65.3023)
+loop_progress = 0.190431
+
+[node name="Player" parent="sun/orbit10" instance=ExtResource("5_tb0t2")]
+position = Vector2(-345, -0.0663523)
+loop_progress = -474.38
