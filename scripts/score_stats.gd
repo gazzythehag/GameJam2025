@@ -26,6 +26,7 @@ func damage_player() -> void:
 		end_game()
 
 func end_game() -> void:
+	game_playing = false
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	pass
 	
@@ -53,3 +54,4 @@ func next_level() -> void:
 
 func main_menu() -> void:
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
+	game_playing = false

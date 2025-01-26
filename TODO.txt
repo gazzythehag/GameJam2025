@@ -2,16 +2,14 @@ TODO
 
 Orbital Frogger:
 	Orbital trajectories -- DONE
-	Player jumping between
+	Player jumping between-- done
 		- Fix suborbital jumps -- DONE
-		- create some kind of "win" condition
+		- create some kind of "win" condition-- done
 		- maybe have speed control  -- DONE
 		- implement elliptical orbits --DONE
-	Obstacles -- in progress
-	Win State
-	Creating actual levels
-	implement the textures
-		-- rotoscope our assets
+	Obstacles -- done
+	Creating actual levels --done
+	implement the textures -- done
 	
 
 Keepy up
