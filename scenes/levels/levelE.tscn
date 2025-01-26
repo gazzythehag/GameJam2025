@@ -29,8 +29,10 @@ orbit_radius = 54
 angular_speed = 2.0
 mode = 1
 
-[node name="nonorbit" parent="sun" instance=ExtResource("4_7abfw")]
+[node name="nonorbit" parent="sun" groups=["rings"] instance=ExtResource("4_7abfw")]
 orbit_radius = 102
+angular_speed = 1.0
+mode = 2
 
 [node name="moon_center" parent="sun/nonorbit" instance=ExtResource("5_xcost")]
 position = Vector2(-1.46763, -101.989)

@@ -29,8 +29,9 @@ orbit_radius = 54
 angular_speed = 2.0
 mode = 1
 
-[node name="nonorbit" parent="sun" instance=ExtResource("4_lgual")]
+[node name="nonorbit" parent="sun" groups=["rings"] instance=ExtResource("4_lgual")]
 orbit_radius = 158
+angular_speed = 0.2
 mode = 2
 
 [node name="moon_center" parent="sun/nonorbit" instance=ExtResource("5_ue8v6")]
