@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbg2354mphllx"]
+
+[ext_resource type="Script" path="res://scripts/score_label.gd" id="1_30esi"]
+
+[node name="score_label" type="RichTextLabel"]
+offset_right = 200.0
+offset_bottom = 75.0
+theme_override_font_sizes/normal_font_size = 40
+text = "SCORE"
+script = ExtResource("1_30esi")
