@@ -37,19 +37,20 @@ func jump_orbit_inward():
 	#lives_label.text = "Lives: " + str(lives)
 	var closest_ring: Object = get_closest_ring(true)
 	if closest_ring != parent_ring:
-		loop_progress = (global_position - closest_ring.global_position).angle()
-		reparent(closest_ring)
-		parent_ring = closest_ring
+		jump(closest_ring)
 		AudioHandler.get_node("InSound").play(0.26)
 
 func jump_orbit_outward():
 	var closest_ring: Object = get_closest_ring(false)
 	if closest_ring != parent_ring:
-		loop_progress = (global_position - closest_ring.global_position).angle()
-		reparent(closest_ring)
-		parent_ring = closest_ring
+		jump(closest_ring)
 		AudioHandler.get_node("OutSound").play(0.32)
-		
+
+func jump(target: Object):
+	loop_progress = (global_position - target.global_position).angle()
+	reparent(target)
+	parent_ring = target
+	
 # Returns the nearest ring within range to the player
 # If all rings are out of range, returns the parent ring (the one which the player is currently on)
 func get_closest_ring(inward: bool) -> Object:
@@ -72,7 +73,6 @@ func is_ring_valid(inward: bool, target: Object) -> bool:
 	if dist_to_player > dist_to_ring and inward: return true
 	elif dist_to_player < dist_to_ring and !inward: return true
 	else: return false
-	
 
 #func is_ring_valid(inward: bool, target: Object) -> bool:
 #	var parent_ring_index: int = rings_in_level.find(get_parent())

@@ -10,7 +10,6 @@ var game_playing: bool = false
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if game_playing:
@@ -24,9 +23,10 @@ func damage_player() -> void:
 		AudioHandler.get_node("Song1").stop()
 		AudioHandler.get_node("Song2").stop()
 		AudioHandler.get_node("DeathSound").play()
-		get_tree().change_scene_to_file("res://scenes/title.tscn")
+		end_game()
 
 func end_game() -> void:
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	pass
 	
 func start_game() -> void:
@@ -50,3 +50,6 @@ func next_level() -> void:
 			get_tree().change_scene_to_file("res://scenes/levels/levelF.tscn")
 		"LevelF":
 			get_tree().change_scene_to_file("res://scenes/title.tscn") ## Maybe make a game over / win scene
+
+func main_menu() -> void:
+	get_tree().change_scene_to_file("res://scenes/title.tscn")
