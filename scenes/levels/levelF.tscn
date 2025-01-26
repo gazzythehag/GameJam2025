@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0tfd8nbgxwmv"]
+
+[ext_resource type="Texture2D" uid="uid://cghkhfux04gqu" path="res://resources/images/cutout diagrams/level_img_e.png" id="1_bwiw4"]
+[ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_60teo"]
+[ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_gymuy"]
+[ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/nodes/false_ring.tscn" id="4_xt0sg"]
+[ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="5_mdukn"]
+[ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_lvumd"]
+
+[node name="LevelF" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 591.0
+offset_top = 5.0
+offset_right = 788.0
+offset_bottom = 61.0
+
+[node name="LevelImgE" type="Sprite2D" parent="."]
+position = Vector2(405, 400)
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_bwiw4")
+
+[node name="sun" parent="." instance=ExtResource("2_60teo")]
+position = Vector2(400, 400)
+
+[node name="orbit9" parent="sun" instance=ExtResource("3_gymuy")]
+orbit_radius = 54
+angular_speed = 2.0
+mode = 1
+
+[node name="nonorbit" parent="sun" instance=ExtResource("4_xt0sg")]
+orbit_radius = 102
+
+[node name="moon_center" parent="sun/nonorbit" instance=ExtResource("5_mdukn")]
+position = Vector2(-5.54494, -101.849)
+loop_progress = 4.658
+
+[node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("3_gymuy")]
+orbit_radius = 165
+angular_speed = 0.5
+mode = 1
+
+[node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_mdukn")]
+position = Vector2(-73.5951, 147.678)
+loop_progress = 2.03312
+
+[node name="orbit10" parent="sun" instance=ExtResource("3_gymuy")]
+orbit_radius = 296
+angular_speed = 0.5
+mode = 2
+
+[node name="moon_center" parent="sun/orbit10" instance=ExtResource("5_mdukn")]
+position = Vector2(295.884, -8.29219)
+loop_progress = 6.25517
+
+[node name="orbit11" parent="sun" instance=ExtResource("3_gymuy")]
+orbit_radius = 359
+angular_speed = 0.2
+mode = 1
+
+[node name="moon_center" parent="sun/orbit11" instance=ExtResource("5_mdukn")]
+position = Vector2(57.5793, 354.352)
+loop_progress = 1.40971
+
+[node name="Player" parent="sun/orbit11" node_paths=PackedStringArray("lives_label") instance=ExtResource("6_lvumd")]
+lives_label = NodePath("../../../RichTextLabel")

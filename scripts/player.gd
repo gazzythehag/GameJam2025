@@ -2,15 +2,19 @@
 extends Moon
 
 @export var max_distance: float # the max distance the node can be from an orbit
+@export var lives_label: RichTextLabel
 
 var rings_in_level: Array
 var parent_ring: Object
+var lives: int = 3
+var initialOrbit: Object
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rings_in_level = get_tree().get_nodes_in_group("rings") ## gets an array of all object in rings group
 	## if a ring is not in the group it is not counted as interactable
 	parent_ring = get_parent()
+	initialOrbit = parent_ring
 
 func _draw(): 
 	draw_circle(Vector2(0,0), radius, centre_colour)
@@ -30,6 +34,7 @@ func _input(event):
 		player_boost = 1.0
 
 func jump_orbit_inward(): 
+	#lives_label.text = "Lives: " + str(lives)
 	var closest_ring: Object = get_closest_ring(true)
 	if closest_ring != parent_ring:
 		loop_progress = closest_ring.get_ellipse_angle(global_position)
@@ -77,3 +82,11 @@ func is_ring_valid(inward: bool, target: Object) -> bool:
 #			if i < parent_ring_index and inward: return true
 #			elif i > parent_ring_index and !inward: return true
 #	return false
+
+func lose_life() -> void:
+	lives -= 1
+	if lives > 0:
+		#lives_label.text = "Lives: " + str(lives)
+		reparent(initialOrbit)
+	else:
+		get_tree().change_scene_to_file("res://scenes/title.tscn")
