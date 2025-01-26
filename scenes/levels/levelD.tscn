@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://qdk8tbrmttbn"]
+[gd_scene load_steps=15 format=3 uid="uid://qdk8tbrmttbn"]
 
 [ext_resource type="Texture2D" uid="uid://dlhxmrmmdntn7" path="res://resources/images/level backgrounds/backgroundD.jpeg" id="1_ikl1f"]
 [ext_resource type="Texture2D" uid="uid://brhvbuv68gorq" path="res://resources/images/trace backgrounds/Level_D.png" id="1_tn37l"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_fo7ej"]
 [ext_resource type="Texture2D" uid="uid://b7em501jou6v" path="res://resources/images/trace backgrounds/Level_D_Sun.png" id="6_k57a3"]
 [ext_resource type="Script" path="res://scripts/ring.gd" id="7_4vwmm"]
+[ext_resource type="PackedScene" uid="uid://d1yt0g80jw5bm" path="res://scenes/nodes/moonC.tscn" id="9_ek3jw"]
 [ext_resource type="Texture2D" uid="uid://3ucel0uyfopn" path="res://resources/images/weird guys/Hmmmmmmmmmm transparent.png" id="10_j1y8y"]
 [ext_resource type="Texture2D" uid="uid://wwy0vk7j36ey" path="res://resources/images/weird guys/Snuffleuphagus transparent.png" id="11_7ukka"]
+[ext_resource type="PackedScene" uid="uid://tluufs383hm3" path="res://scenes/nodes/moonB.tscn" id="11_ruuil"]
 
 [node name="LevelD" type="Node2D"]
 
@@ -35,14 +37,14 @@ orbit_radius = 54
 angular_speed = 2.0
 mode = 1
 
-[node name="nonorbit" parent="sun" groups=["rings"] instance=ExtResource("4_lgual")]
+[node name="nonorbit" parent="sun" instance=ExtResource("4_lgual")]
 orbit_radius = 158
 angular_speed = 0.2
 mode = 2
 
 [node name="moon_center" parent="sun/nonorbit" instance=ExtResource("5_ue8v6")]
-position = Vector2(-6.98117, -157.846)
-loop_progress = 4.66819
+position = Vector2(-58.4475, -146.792)
+loop_progress = 4.33347
 
 [node name="Sprite2D" parent="sun/nonorbit/moon_center" index="0"]
 scale = Vector2(0.378906, 0.378906)
@@ -53,9 +55,11 @@ orbit_radius = 76
 angular_speed = 1.0
 mode = 1
 
-[node name="moon_center" parent="sun/nonorbit/moon_center/morbit1" instance=ExtResource("5_ue8v6")]
-position = Vector2(-35.311, 67.2988)
-loop_progress = 2.054
+[node name="moon_center2" parent="sun/nonorbit/moon_center/morbit1" instance=ExtResource("9_ek3jw")]
+position = Vector2(65.4795, 38.5803)
+loop_progress = 3.142
+
+[node name="moon_center" parent="sun/nonorbit/moon_center/morbit1" instance=ExtResource("9_ek3jw")]
 
 [node name="morbit2" type="Node2D" parent="sun/nonorbit/moon_center"]
 script = ExtResource("7_4vwmm")
@@ -64,39 +68,78 @@ mode = 2
 
 [node name="orbit10" parent="sun" instance=ExtResource("3_de362")]
 orbit_radius = 251
-angular_speed = 2.0
+angular_speed = 2.5
 mode = 1
 
-[node name="moon_center" parent="sun/orbit10" instance=ExtResource("5_ue8v6")]
-position = Vector2(-71.3924, 240.633)
-loop_progress = 1.85921
+[node name="moon_center" parent="sun/orbit10" instance=ExtResource("11_ruuil")]
+
+[node name="moon_center2" parent="sun/orbit10" instance=ExtResource("11_ruuil")]
+loop_progress = 2.094
+
+[node name="moon_center3" parent="sun/orbit10" instance=ExtResource("11_ruuil")]
+loop_progress = 4.189
 
 [node name="orbit11" parent="sun" instance=ExtResource("3_de362")]
 orbit_radius = 280
-angular_speed = 0.5
-mode = 1
+angular_speed = 0.25
+mode = 2
 
 [node name="moon_center" parent="sun/orbit11" instance=ExtResource("5_ue8v6")]
-position = Vector2(2.76384, -279.986)
-loop_progress = 4.72226
+position = Vector2(62.0383, 273.041)
+
+[node name="moon_center2" parent="sun/orbit11" instance=ExtResource("5_ue8v6")]
+position = Vector2(-269.997, 74.1736)
+loop_progress = 1.257
+
+[node name="moon_center3" parent="sun/orbit11" instance=ExtResource("5_ue8v6")]
+position = Vector2(-81.3466, 267.923)
+loop_progress = 2.513
+
+[node name="moon_center4" parent="sun/orbit11" instance=ExtResource("5_ue8v6")]
+position = Vector2(205.774, -189.887)
+loop_progress = 3.77
+
+[node name="moon_center5" parent="sun/orbit11" instance=ExtResource("5_ue8v6")]
+position = Vector2(-42.1261, -276.813)
+loop_progress = 5.027
 
 [node name="orbit12" parent="sun" instance=ExtResource("3_de362")]
 orbit_radius = 310
 angular_speed = 2.0
 mode = 1
 
-[node name="moon_center" parent="sun/orbit12" instance=ExtResource("5_ue8v6")]
-position = Vector2(-52.0076, 305.606)
-loop_progress = 1.73936
+[node name="moon_center" parent="sun/orbit12" instance=ExtResource("11_ruuil")]
+position = Vector2(-303.468, -63.3043)
+loop_progress = 3.34725
+
+[node name="moon_center2" parent="sun/orbit12" instance=ExtResource("11_ruuil")]
+position = Vector2(-139.604, -276.786)
+loop_progress = 4.24525
+
+[node name="moon_center3" parent="sun/orbit12" instance=ExtResource("11_ruuil")]
+position = Vector2(129.19, -281.798)
+loop_progress = 5.14225
+
+[node name="moon_center4" parent="sun/orbit12" instance=ExtResource("11_ruuil")]
+position = Vector2(300.897, -74.5723)
+loop_progress = 6.04025
+
+[node name="moon_center5" parent="sun/orbit12" instance=ExtResource("11_ruuil")]
+position = Vector2(246.022, 188.609)
+loop_progress = 0.654061
+
+[node name="moon_center6" parent="sun/orbit12" instance=ExtResource("11_ruuil")]
+position = Vector2(5.80746, 309.946)
+loop_progress = 1.55206
+
+[node name="moon_center7" parent="sun/orbit12" instance=ExtResource("11_ruuil")]
+position = Vector2(-238.784, 197.692)
+loop_progress = 2.45006
 
 [node name="orbit13" parent="sun" instance=ExtResource("3_de362")]
 orbit_radius = 355
 angular_speed = 0.1
 mode = 1
-
-[node name="moon_center" parent="sun/orbit13" instance=ExtResource("5_ue8v6")]
-position = Vector2(-106.013, 338.801)
-loop_progress = 1.87405
 
 [node name="Player" parent="sun/orbit13" instance=ExtResource("6_fo7ej")]
 position = Vector2(355, 0)
@@ -109,7 +152,7 @@ rotation = 0.237365
 texture = ExtResource("10_j1y8y")
 
 [node name="Snuffleuphagus" type="Sprite2D" parent="Background"]
-position = Vector2(185, 876)
+position = Vector2(191, 906)
 scale = Vector2(-1, 1)
 texture = ExtResource("11_7ukka")
 

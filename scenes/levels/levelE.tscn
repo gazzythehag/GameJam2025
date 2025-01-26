@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbqkeh3ayjsib"]
+[gd_scene load_steps=15 format=3 uid="uid://dbqkeh3ayjsib"]
 
 [ext_resource type="Texture2D" uid="uid://dv67xe52rajuu" path="res://resources/images/trace backgrounds/Level_E.png" id="1_5mxcl"]
 [ext_resource type="Texture2D" uid="uid://baeu6t7uvkri1" path="res://resources/images/level backgrounds/backgroundE.jpeg" id="1_l38o2"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cvcf0nq6g7hwl" path="res://resources/images/cutout suns/Level_F_Sun.png" id="8_is2b1"]
 [ext_resource type="Texture2D" uid="uid://bw0cntjpxwsp" path="res://resources/images/weird guys/Krunkus_transparent.png" id="11_1u0va"]
 [ext_resource type="Texture2D" uid="uid://bf2g5vonwhfe2" path="res://resources/images/weird guys/krunkus.jpeg" id="12_axof2"]
+[ext_resource type="PackedScene" uid="uid://be6s072htwlft" path="res://scenes/nodes/moonE.tscn" id="12_eds3y"]
 
 [node name="LevelE" type="Node2D"]
 
@@ -38,7 +39,7 @@ mode = 1
 
 [node name="nonorbit" parent="sun" groups=["rings"] instance=ExtResource("4_7abfw")]
 orbit_radius = 102
-angular_speed = 1.0
+angular_speed = 1.414
 mode = 2
 
 [node name="moon_center" parent="sun/nonorbit" instance=ExtResource("5_xcost")]
@@ -61,12 +62,14 @@ mode = 2
 
 [node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
 orbit_radius = 192
-angular_speed = 0.5
-mode = 1
+angular_speed = 2.0
+mode = 2
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_xcost")]
 position = Vector2(-175.125, -78.7101)
-loop_progress = 3.56399
+
+[node name="moon_center2" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_xcost")]
+loop_progress = 0.785
 
 [node name="orbit2" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
 orbit_radius = 222
@@ -85,24 +88,29 @@ texture = ExtResource("8_is2b1")
 
 [node name="orbit3" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
 orbit_radius = 260
-angular_speed = 0.25
+angular_speed = 2.0
 mode = 1
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit3" instance=ExtResource("5_xcost")]
 position = Vector2(258.825, 24.6923)
-loop_progress = 0.0951139
+loop_progress = 3.142
+
+[node name="moon_center2" parent="sun/nonorbit/moon_center/orbit3" instance=ExtResource("5_xcost")]
+loop_progress = 3.927
 
 [node name="orbit10" parent="sun" instance=ExtResource("3_lin8v")]
 orbit_radius = 373
-angular_speed = 1.0
+angular_speed = 0.5
 mode = 1
-
-[node name="moon_center" parent="sun/orbit10" instance=ExtResource("5_xcost")]
-position = Vector2(276.015, -250.888)
-loop_progress = 5.54544
 
 [node name="Player" parent="sun/orbit10" instance=ExtResource("5_w6rbg")]
 position = Vector2(373, 0)
+
+[node name="moon_center" parent="sun/orbit10" instance=ExtResource("12_eds3y")]
+loop_progress = 1.571
+
+[node name="moon_center2" parent="sun/orbit10" instance=ExtResource("12_eds3y")]
+loop_progress = 4.712
 
 [node name="Background" type="Node" parent="."]
 
