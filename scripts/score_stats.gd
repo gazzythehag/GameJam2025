@@ -49,7 +49,7 @@ func next_level() -> void:
 		"LevelE":
 			get_tree().change_scene_to_file("res://scenes/levels/levelF.tscn")
 		"LevelF":
-			get_tree().change_scene_to_file("res://scenes/title.tscn") ## Maybe make a game over / win scene
+			get_tree().change_scene_to_file("res://scenes/game_over.tscn") ## Maybe make a game over / win scene
 
 func main_menu() -> void:
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
