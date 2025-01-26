@@ -26,7 +26,8 @@ func _draw():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_player_too_close() and player.name != name:
-		print("Player collision detected")
+		pass
+		#print("Player collision detected")
 	normalize_loop_progress()
 
 func normalize_loop_progress() -> void:

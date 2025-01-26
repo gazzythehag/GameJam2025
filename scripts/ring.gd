@@ -21,7 +21,8 @@ var moons: Array:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ellipse_c = sqrt(ellipse_a*ellipse_a - ellipse_b*ellipse_b)
+	ellipse_c = orbit_radius * sqrt(ellipse_a*ellipse_a - ellipse_b*ellipse_b)
+	print(ellipse_c)
 	for moon in moons: ## set initial position of moon (if fixed, it won't be set on the orbit)
 		moon.position = Vector2(orbit_radius, 0)
 		#moon.translate(Vector2(orbit_radius, 0))
@@ -64,7 +65,14 @@ func get_closest_pos(other_pos: Vector2) -> Vector2:
 	var line_to_pos: Vector2 = other_pos - (global_position + orbit_radius*Vector2(ellipse_h, ellipse_k) )
 	var dist: float = line_to_pos.length()
 	var angle_from_centre: float = line_to_pos.angle()
+	#var fake_position: Vector2 = orbit_radius * Vector2(ellipse_a * cos(angle_from_centre), ellipse_b * sin(angle_from_centre))
+	#var real_position = fake_position + Vector2(1,0) * ellipse_h * orbit_radius
+	#var real_angle = real_position.angle()
+	
+	#var pos = real_position + Vector2(400, 400)
+	#var pos = real_position
 	var pos = get_ellipse_position(angle_from_centre) + global_position
+	#print("furreal tho " + str(pos))
 	return pos
 
 # This function takes in an angle theta and then returns the x,y position on an ellipse
