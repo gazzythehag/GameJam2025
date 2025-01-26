@@ -5,7 +5,7 @@ Orbital Frogger:
 	Player jumping between
 		- Fix suborbital jumps -- DONE
 		- create some kind of "win" condition
-		- maybe have speed control
+		- maybe have speed control  -- DONE
 		- implement elliptical orbits --DONE
 	Obstacles -- in progress
 	Win State
