@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0x6q386ujysm"
-path="res://.godot/imported/Blue_Guy.png-af02ccac8751cc8b70d61426f2ae5294.ctex"
+uid="uid://book15u7jha52"
+path="res://.godot/imported/Jimbo.png-a5b290d4452a62918e743bd4c473411c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/trace backgrounds/Blue_Guy.png"
-dest_files=["res://.godot/imported/Blue_Guy.png-af02ccac8751cc8b70d61426f2ae5294.ctex"]
+source_file="res://resources/images/cutout suns/Jimbo.png"
+dest_files=["res://.godot/imported/Jimbo.png-a5b290d4452a62918e743bd4c473411c.ctex"]
 
 [params]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b80dxqm4gipb8"]
+[gd_scene load_steps=7 format=3 uid="uid://b80dxqm4gipb8"]
 
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="1_8yc6f"]
 [ext_resource type="Texture2D" uid="uid://d1fxqdxwjefkm" path="res://resources/images/trace backgrounds/Level_A.png" id="1_tavo3"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="2_ke45q"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="3_w16ky"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="5_tb0t2"]
+[ext_resource type="Texture2D" uid="uid://0x6q386ujysm" path="res://resources/images/weird guys/Blue_Guy.png" id="6_1gg6f"]
 
 [node name="LevelA" type="Node2D"]
 
@@ -98,3 +99,9 @@ loop_progress = 4.82208
 position = Vector2(27.9737, 348.88)
 lives_label = NodePath("../../../RichTextLabel")
 loop_progress = -432.049
+
+[node name="BlueGuy" type="Sprite2D" parent="."]
+position = Vector2(157, 201)
+rotation = 0.523599
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_1gg6f")
