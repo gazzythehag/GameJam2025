@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7u2ydrsahvit"]
+[gd_scene load_steps=8 format=3 uid="uid://b7u2ydrsahvit"]
 
 [ext_resource type="AudioStream" uid="uid://wph5g0jqxggm" path="res://resources/sounds/hit_sound.wav" id="1_r575n"]
 [ext_resource type="AudioStream" uid="uid://dsbg60hugvfjw" path="res://resources/sounds/death_sound.wav" id="2_6t21r"]
 [ext_resource type="AudioStream" uid="uid://s6jl3y2liify" path="res://resources/sounds/title_song.WAV" id="3_xrumc"]
 [ext_resource type="AudioStream" uid="uid://uaycii5g0qce" path="res://resources/sounds/groovin_song.WAV" id="4_mhrcv"]
 [ext_resource type="AudioStream" uid="uid://d1ghmmh8g4wnm" path="res://resources/sounds/boss_battle_song.WAV" id="5_n43vt"]
+[ext_resource type="AudioStream" uid="uid://fic8q6jqnadq" path="res://resources/sounds/raindrop.wav" id="6_8m757"]
+[ext_resource type="AudioStream" uid="uid://v4ps3lj08ii0" path="res://resources/sounds/beep.wav" id="7_1pa0y"]
 
 [node name="AudioHandler" type="Node2D"]
 
@@ -22,6 +24,14 @@ stream = ExtResource("4_mhrcv")
 
 [node name="Song2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_n43vt")
+
+[node name="InSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_8m757")
+volume_db = -5.0
+
+[node name="OutSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_1pa0y")
+volume_db = -5.0
 
 [connection signal="finished" from="Song1" to="Song2" method="play"]
 [connection signal="finished" from="Song2" to="Song1" method="play"]

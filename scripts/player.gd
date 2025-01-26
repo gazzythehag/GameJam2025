@@ -40,6 +40,7 @@ func jump_orbit_inward():
 		loop_progress = (global_position - closest_ring.global_position).angle()
 		reparent(closest_ring)
 		parent_ring = closest_ring
+		AudioHandler.get_node("InSound").play(0.26)
 
 func jump_orbit_outward():
 	var closest_ring: Object = get_closest_ring(false)
@@ -47,6 +48,7 @@ func jump_orbit_outward():
 		loop_progress = (global_position - closest_ring.global_position).angle()
 		reparent(closest_ring)
 		parent_ring = closest_ring
+		AudioHandler.get_node("OutSound").play(0.32)
 		
 # Returns the nearest ring within range to the player
 # If all rings are out of range, returns the parent ring (the one which the player is currently on)
