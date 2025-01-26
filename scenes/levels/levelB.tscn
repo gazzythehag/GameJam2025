@@ -1,20 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://fytwcfoumy2"]
+[gd_scene load_steps=7 format=3 uid="uid://fytwcfoumy2"]
 
+[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_7qhra"]
 [ext_resource type="Texture2D" uid="uid://duwwa7og73eyl" path="res://resources/images/trace backgrounds/Level_B.png" id="1_mqmmk"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_sg416"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_gfybw"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="4_7fea4"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="5_a8ajn"]
-[ext_resource type="Texture2D" uid="uid://cptbc166700vk" path="res://resources/images/weird guys/Gbleehg_transparent.png" id="6_y7gma"]
-[ext_resource type="Texture2D" uid="uid://ckwalbfrjgmpp" path="res://resources/images/weird guys/Gbleegh.jpeg" id="7_i0j8f"]
 
 [node name="LevelB" type="Node2D"]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 591.0
-offset_top = 5.0
-offset_right = 788.0
-offset_bottom = 61.0
+[node name="score_label" parent="." instance=ExtResource("1_7qhra")]
 
 [node name="LevelImgB" type="Sprite2D" parent="."]
 position = Vector2(397, 401)
@@ -95,15 +90,5 @@ mode = 1
 
 [node name="Player" parent="sun/orbit10" node_paths=PackedStringArray("lives_label") instance=ExtResource("5_a8ajn")]
 position = Vector2(141.377, 324.544)
-lives_label = NodePath("../../../RichTextLabel")
+lives_label = NodePath("")
 loop_progress = -269.017
-
-[node name="Gbleegh_foreground" type="Sprite2D" parent="."]
-position = Vector2(781, 63.9999)
-rotation = -0.785398
-scale = Vector2(0.75841, 0.75841)
-texture = ExtResource("6_y7gma")
-
-[node name="Gbleegh_background" type="Sprite2D" parent="Gbleegh_foreground"]
-z_index = -4096
-texture = ExtResource("7_i0j8f")
