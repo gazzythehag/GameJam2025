@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fytwcfoumy2"]
+[gd_scene load_steps=8 format=3 uid="uid://fytwcfoumy2"]
 
 [ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_7qhra"]
 [ext_resource type="Texture2D" uid="uid://duwwa7og73eyl" path="res://resources/images/trace backgrounds/Level_B.png" id="1_mqmmk"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="4_7fea4"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="5_a8ajn"]
 [ext_resource type="Texture2D" uid="uid://cptbc166700vk" path="res://resources/images/weird guys/Gbleehg_transparent.png" id="6_y7gma"]
-[ext_resource type="Texture2D" uid="uid://ckwalbfrjgmpp" path="res://resources/images/weird guys/Gbleegh.jpeg" id="7_i0j8f"]
 
 [node name="LevelB" type="Node2D"]
 
@@ -101,7 +100,3 @@ position = Vector2(39, 355)
 rotation = 0.261799
 scale = Vector2(-0.679, 0.679)
 texture = ExtResource("6_y7gma")
-
-[node name="Solid" type="Sprite2D" parent="Backgrounds/Gbleegh"]
-z_index = -1000
-texture = ExtResource("7_i0j8f")

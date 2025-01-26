@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6tka8dyo84l"]
+[gd_scene load_steps=10 format=3 uid="uid://c6tka8dyo84l"]
 
 [ext_resource type="Texture2D" uid="uid://cobwlj8yb2pxc" path="res://resources/images/trace backgrounds/Level_F.png" id="1_4no35"]
 [ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_myuee"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_lvumd"]
 [ext_resource type="Texture2D" uid="uid://d2w6jwe0xxsvg" path="res://resources/images/trace backgrounds/Level_F_Sun.png" id="6_wm5df"]
 [ext_resource type="Texture2D" uid="uid://cbgxf5xhfrui6" path="res://resources/images/weird guys/Badonkadonk_transparent.png" id="9_6cpuq"]
-[ext_resource type="Texture2D" uid="uid://d2my6s8yceqf4" path="res://resources/images/weird guys/Badonkadonk.png" id="10_y70ke"]
 
 [node name="LevelF" type="Node2D"]
 
@@ -107,9 +106,5 @@ position = Vector2(357, 0)
 position = Vector2(497, 814)
 scale = Vector2(0.771588, 0.629527)
 texture = ExtResource("9_6cpuq")
-
-[node name="SOLID badonkadonk" type="Sprite2D" parent="Background/Badonkadonk"]
-z_index = -1000
-texture = ExtResource("10_y70ke")
 
 [editable path="sun/nonorbit/moon_center"]
