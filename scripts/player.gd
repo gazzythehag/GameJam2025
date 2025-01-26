@@ -20,6 +20,14 @@ func _input(event):
 		jump_orbit_inward()
 	if event.is_action_pressed("ui_down"):
 		jump_orbit_outward()
+	if event.is_action_pressed("ui_left"):
+		player_boost = 0.5
+	if event.is_action_released("ui_left"):
+		player_boost = 1.0
+	if event.is_action_pressed("ui_right"):
+		player_boost = 2.0
+	if event.is_action_released("ui_right"):
+		player_boost = 1.0
 
 func jump_orbit_inward(): 
 	var closest_ring: Object = get_closest_ring(true)
@@ -45,7 +53,7 @@ func get_closest_ring(inward: bool) -> Object:
 		if ring != get_parent():
 			#var distance = abs((ring.global_position - global_position).length() - ring.orbit_radius)
 			var distance: float = abs((ring.get_closest_pos(global_position) - global_position).length())
-			print("and distance is: " + str(distance))
+			#print("and distance is: " + str(distance))
 			#print(ring.name + " and distance is: " + str(distance))
 			if distance < closest and distance < max_distance:
 				if is_ring_valid(inward, ring):

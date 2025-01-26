@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node2D
 class_name Moon
 
@@ -8,6 +8,7 @@ class_name Moon
 @export var loop_progress: float = 0:
 	get: return loop_progress
 	set(value): loop_progress = value
+var player_boost: float = 1.0
 
 var rings: Array:
 	get: return get_children()
@@ -17,7 +18,7 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(player)
+	#print(player)
 	queue_redraw()
 
 func _draw():

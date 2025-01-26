@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node2D
 class_name OrbitRing
 
@@ -22,7 +22,7 @@ var moons: Array:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ellipse_c = orbit_radius * sqrt(ellipse_a*ellipse_a - ellipse_b*ellipse_b)
-	print(ellipse_c)
+	#print(ellipse_c)
 	for moon in moons: ## set initial position of moon (if fixed, it won't be set on the orbit)
 		moon.position = Vector2(orbit_radius, 0)
 		#moon.translate(Vector2(orbit_radius, 0))
@@ -33,28 +33,25 @@ func _draw() -> void:
 	# make all the points that define an ellipse, then draw the polyline connecting em
 	for t in 1000:
 		coords_ellipse.append(get_ellipse_position(2*PI*t/1000))
-	draw_polyline(coords_ellipse, orbit_colour, -1,true)
+	#draw_polyline(coords_ellipse, orbit_colour, -1,true)
 	#draw_circle(Vector2(0,0), orbit_radius, orbit_colour, false, 1.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	match mode:
 		MODES.FIXED:
+			move_moon(delta, 0.0)
 			set_moon_pos()
 		MODES.COUNTERCLOCKWISE:
-			move_clockwise(delta)
+			move_moon(delta, -1.0)
 			set_moon_pos()
 		MODES.CLOCKWISE:
-			move_counterclockwise(delta)
+			move_moon(delta, 1.0)
 			set_moon_pos()
 
-func move_clockwise(delta: float):
+func move_moon(delta: float, direction: float):
 	for moon in moons:
-		moon.loop_progress -= delta * angular_speed
-		
-func move_counterclockwise(delta: float):
-	for moon in moons:
-		moon.loop_progress += delta * angular_speed
+		moon.loop_progress += delta * angular_speed * direction * moon.player_boost
 
 func set_moon_pos():
 	for moon in moons:
