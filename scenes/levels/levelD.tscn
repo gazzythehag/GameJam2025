@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://qdk8tbrmttbn"]
+[gd_scene load_steps=9 format=3 uid="uid://qdk8tbrmttbn"]
 
 [ext_resource type="Texture2D" uid="uid://brhvbuv68gorq" path="res://resources/images/trace backgrounds/Level_D.png" id="1_tn37l"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_jpc11"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="5_ue8v6"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_fo7ej"]
 [ext_resource type="Texture2D" uid="uid://b7em501jou6v" path="res://resources/images/trace backgrounds/Level_D_Sun.png" id="6_k57a3"]
+[ext_resource type="Script" path="res://scripts/ring.gd" id="7_4vwmm"]
 
 [node name="LevelD" type="Node2D"]
 
@@ -42,14 +43,19 @@ loop_progress = 4.66819
 scale = Vector2(0.378906, 0.378906)
 texture = ExtResource("6_k57a3")
 
-[node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("3_de362")]
+[node name="morbit1" parent="sun/nonorbit/moon_center" instance=ExtResource("3_de362")]
 orbit_radius = 76
 angular_speed = 1.0
 mode = 1
 
-[node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_ue8v6")]
+[node name="moon_center" parent="sun/nonorbit/moon_center/morbit1" instance=ExtResource("5_ue8v6")]
 position = Vector2(-35.311, 67.2988)
 loop_progress = 2.054
+
+[node name="morbit2" type="Node2D" parent="sun/nonorbit/moon_center"]
+script = ExtResource("7_4vwmm")
+orbit_radius = 45
+mode = 2
 
 [node name="orbit10" parent="sun" instance=ExtResource("3_de362")]
 orbit_radius = 251
@@ -62,7 +68,7 @@ loop_progress = 1.85921
 
 [node name="orbit11" parent="sun" instance=ExtResource("3_de362")]
 orbit_radius = 280
-angular_speed = 2.0
+angular_speed = 0.5
 mode = 1
 
 [node name="moon_center" parent="sun/orbit11" instance=ExtResource("5_ue8v6")]

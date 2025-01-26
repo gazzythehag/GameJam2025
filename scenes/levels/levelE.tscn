@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbqkeh3ayjsib"]
+[gd_scene load_steps=10 format=3 uid="uid://dbqkeh3ayjsib"]
 
 [ext_resource type="Texture2D" uid="uid://dv67xe52rajuu" path="res://resources/images/trace backgrounds/Level_E.png" id="1_5mxcl"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_oi74t"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="5_w6rbg"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="5_xcost"]
 [ext_resource type="Texture2D" uid="uid://bydufvnu7b20m" path="res://resources/images/trace backgrounds/Level_E_Sun.png" id="6_benui"]
+[ext_resource type="Script" path="res://scripts/ring.gd" id="6_lgmif"]
+[ext_resource type="Texture2D" uid="uid://cvcf0nq6g7hwl" path="res://resources/images/cutout suns/Level_F_Sun.png" id="8_is2b1"]
 
 [node name="LevelE" type="Node2D"]
 
@@ -42,6 +44,16 @@ loop_progress = 4.698
 scale = Vector2(0.379557, 0.379557)
 texture = ExtResource("6_benui")
 
+[node name="morbit2" type="Node2D" parent="sun/nonorbit/moon_center"]
+script = ExtResource("6_lgmif")
+orbit_radius = 28
+mode = 1
+
+[node name="morbit" type="Node2D" parent="sun/nonorbit/moon_center"]
+script = ExtResource("6_lgmif")
+orbit_radius = 52
+mode = 2
+
 [node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
 orbit_radius = 192
 angular_speed = 0.5
@@ -53,16 +65,22 @@ loop_progress = 3.56399
 
 [node name="orbit2" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
 orbit_radius = 222
-angular_speed = 0.54
+angular_speed = 3.5
 mode = 2
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit2" instance=ExtResource("5_xcost")]
 position = Vector2(133.78, -177.163)
+radius = 40
 loop_progress = 5.35916
+
+[node name="Sprite2D" parent="sun/nonorbit/moon_center/orbit2/moon_center" index="0"]
+rotation = 3.14159
+scale = Vector2(0.856024, 0.856024)
+texture = ExtResource("8_is2b1")
 
 [node name="orbit3" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
 orbit_radius = 260
-angular_speed = 0.5
+angular_speed = 0.25
 mode = 1
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit3" instance=ExtResource("5_xcost")]
@@ -83,3 +101,4 @@ position = Vector2(373, 0)
 lives_label = NodePath("../../../RichTextLabel")
 
 [editable path="sun/nonorbit/moon_center"]
+[editable path="sun/nonorbit/moon_center/orbit2/moon_center"]

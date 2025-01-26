@@ -22,7 +22,8 @@ func _ready() -> void:
 	queue_redraw()
 
 func _draw():
-	draw_circle(Vector2(0,0), radius, centre_colour)
+	pass
+	#draw_circle(Vector2(0,0), radius, centre_colour)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

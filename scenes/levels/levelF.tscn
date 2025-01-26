@@ -29,6 +29,21 @@ orbit_radius = 54
 angular_speed = 2.0
 mode = 1
 
+[node name="moon_center4" parent="sun/orbit9" instance=ExtResource("5_mdukn")]
+position = Vector2(-54, -0.0219967)
+loop_progress = 3.142
+
+[node name="moon_center3" parent="sun/orbit9" instance=ExtResource("5_mdukn")]
+position = Vector2(-0.0210049, -54)
+loop_progress = 4.712
+
+[node name="moon_center" parent="sun/orbit9" instance=ExtResource("5_mdukn")]
+position = Vector2(54, 0)
+
+[node name="moon_center2" parent="sun/orbit9" instance=ExtResource("5_mdukn")]
+position = Vector2(-0.0109984, 54)
+loop_progress = 1.571
+
 [node name="nonorbit" parent="sun" groups=["rings"] instance=ExtResource("4_xt0sg")]
 orbit_radius = 102
 angular_speed = 2.0
@@ -39,6 +54,8 @@ position = Vector2(-5.54494, -101.849)
 loop_progress = 4.658
 
 [node name="Sprite2D" parent="sun/nonorbit/moon_center" index="0"]
+position = Vector2(0, 2)
+rotation = 3.14159
 scale = Vector2(0.393555, 0.393555)
 texture = ExtResource("6_wm5df")
 
@@ -50,6 +67,18 @@ mode = 1
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_mdukn")]
 position = Vector2(-73.5948, 147.678)
 loop_progress = 2.03312
+
+[node name="orbit2" parent="sun/nonorbit/moon_center" instance=ExtResource("3_gymuy")]
+orbit_radius = 46
+mode = 2
+
+[node name="moon_center" parent="sun/nonorbit/moon_center/orbit2" instance=ExtResource("5_mdukn")]
+position = Vector2(46, 0)
+
+[node name="orbit3" parent="sun/nonorbit/moon_center" instance=ExtResource("3_gymuy")]
+orbit_radius = 28
+angular_speed = 2.0
+mode = 1
 
 [node name="orbit10" parent="sun" instance=ExtResource("3_gymuy")]
 orbit_radius = 296

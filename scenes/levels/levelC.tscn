@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkqowdpbn3ndi"]
+[gd_scene load_steps=9 format=3 uid="uid://bkqowdpbn3ndi"]
 
 [ext_resource type="Texture2D" uid="uid://lm2llnaocber" path="res://resources/images/trace backgrounds/Level_C.png" id="1_y6o50"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_rqa17"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="5_08i4r"]
 [ext_resource type="Texture2D" uid="uid://dw6i5olr6efar" path="res://resources/images/trace backgrounds/Level_C_Planet.png" id="6_rcmb7"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_uuqm2"]
+[ext_resource type="Script" path="res://scripts/ring.gd" id="8_60ewo"]
 
 [node name="LevelC" type="Node2D"]
 
@@ -87,8 +88,14 @@ orbit_radius = 90
 position = Vector2(59.1533, 67.8299)
 loop_progress = 0.853621
 
-[node name="Player" parent="sun/orbit6" node_paths=PackedStringArray("lives_label") instance=ExtResource("6_uuqm2")]
-position = Vector2(90, 0)
+[node name="orbit7" type="Node2D" parent="sun"]
+script = ExtResource("8_60ewo")
+orbit_radius = 358
+angular_speed = 4.0
+mode = 2
+
+[node name="Player" parent="sun/orbit7" node_paths=PackedStringArray("lives_label") instance=ExtResource("6_uuqm2")]
+position = Vector2(358, 0)
 lives_label = NodePath("../../../RichTextLabel")
 
 [editable path="sun/nonorbit/moon_center"]
