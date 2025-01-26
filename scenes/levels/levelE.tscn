@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbqkeh3ayjsib"]
+[gd_scene load_steps=14 format=3 uid="uid://dbqkeh3ayjsib"]
 
 [ext_resource type="Texture2D" uid="uid://dv67xe52rajuu" path="res://resources/images/trace backgrounds/Level_E.png" id="1_5mxcl"]
-[ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_ne05t"]
+[ext_resource type="Texture2D" uid="uid://baeu6t7uvkri1" path="res://resources/images/level backgrounds/backgroundE.jpeg" id="1_l38o2"]
+[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_ne05t"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_oi74t"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_lin8v"]
 [ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/nodes/false_ring.tscn" id="4_7abfw"]
@@ -14,6 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://bf2g5vonwhfe2" path="res://resources/images/weird guys/krunkus.jpeg" id="12_axof2"]
 
 [node name="LevelE" type="Node2D"]
+
+[node name="BackroundE" type="Sprite2D" parent="."]
+position = Vector2(507, 780)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("1_l38o2")
 
 [node name="score_label" parent="." instance=ExtResource("1_ne05t")]
 

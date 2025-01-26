@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b80dxqm4gipb8"]
+[gd_scene load_steps=10 format=3 uid="uid://b80dxqm4gipb8"]
 
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="1_8yc6f"]
+[ext_resource type="Texture2D" uid="uid://bgi3gb21yv85t" path="res://resources/images/level backgrounds/backgroundA.jpeg" id="1_lfvq0"]
 [ext_resource type="Texture2D" uid="uid://d1fxqdxwjefkm" path="res://resources/images/trace backgrounds/Level_A.png" id="1_tavo3"]
-[ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_yx6fb"]
+[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_yx6fb"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="2_ke45q"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="3_w16ky"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="5_tb0t2"]
@@ -10,6 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://b41x0yxyyobrq" path="res://resources/images/weird guys/Garfield.png" id="8_yrp1k"]
 
 [node name="LevelA" type="Node2D"]
+
+[node name="BackgroundA" type="Sprite2D" parent="."]
+position = Vector2(497, 299)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("1_lfvq0")
 
 [node name="score_label" parent="." instance=ExtResource("1_yx6fb")]
 
