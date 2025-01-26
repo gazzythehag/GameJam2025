@@ -19,7 +19,7 @@ scale = Vector2(0.379272, 0.379272)
 texture = ExtResource("1_mqmmk")
 
 [node name="sun" parent="." instance=ExtResource("2_sg416")]
-position = Vector2(400, 400)
+position = Vector2(500, 500)
 
 [node name="orbit9" parent="sun" instance=ExtResource("3_gfybw")]
 orbit_radius = 60
