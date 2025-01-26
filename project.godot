@@ -18,6 +18,7 @@ config/icon="res://resources/icon.svg"
 [autoload]
 
 AudioHandler="*res://scenes/nodes/audio_handler.tscn"
+ScoreStats="*res://scripts/score_stats.gd"
 
 [display]
 
