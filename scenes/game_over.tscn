@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_xsrwt"]
 [ext_resource type="Texture2D" uid="uid://qs7rbib7sogw" path="res://resources/images/original images/many_circles.jpeg" id="2_d4tof"]
-[ext_resource type="Texture2D" uid="uid://bf7dlq5dr52pl" path="res://resources/images/original images/8598115842_902e74426e_o.png" id="2_nm5iy"]
+[ext_resource type="Texture2D" uid="uid://xlcs8oqgwhly" path="res://resources/images/original images/cover_art.jpeg" id="2_vp7x8"]
 [ext_resource type="Texture2D" uid="uid://cfd4o40ehllyc" path="res://resources/images/original images/105949absdl.jpg" id="3_bl44n"]
 [ext_resource type="Texture2D" uid="uid://bu4tf11w1cqp4" path="res://resources/images/original images/913473ilsdl.jpg" id="3_kqm4y"]
 [ext_resource type="Texture2D" uid="uid://iyupsqk3uyk4" path="res://resources/images/original images/105950absdl.jpg" id="4_bfrj1"]
@@ -25,10 +25,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xsrwt")
 
-[node name="8598115842902e74426eO" type="Sprite2D" parent="."]
-position = Vector2(636, 383)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("2_nm5iy")
+[node name="CoverArt" type="Sprite2D" parent="."]
+position = Vector2(630, 418)
+texture = ExtResource("2_vp7x8")
 
 [node name="913473Ilsdl" type="Sprite2D" parent="."]
 position = Vector2(896, 419)
@@ -65,32 +64,6 @@ position = Vector2(677, 137)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("8_ra81m")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -101.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 68
-text = "BACK TO MENU"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -252.0
-offset_right = 252.0
-offset_bottom = 116.0
-grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 85
-text = "GAME OVER"
-fit_content = true
-
 [node name="Badonkadonk" type="Sprite2D" parent="."]
 position = Vector2(568, 540)
 scale = Vector2(0.2, 0.2)
@@ -120,5 +93,31 @@ texture = ExtResource("14_5o353")
 position = Vector2(841, 771)
 scale = Vector2(0.85, 0.85)
 texture = ExtResource("15_dsl65")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 68
+text = "BACK TO MENU"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.0
+offset_right = 252.0
+offset_bottom = 116.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 85
+text = "GAME OVER"
+fit_content = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
