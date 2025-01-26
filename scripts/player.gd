@@ -87,6 +87,11 @@ func lose_life() -> void:
 	lives -= 1
 	if lives > 0:
 		#lives_label.text = "Lives: " + str(lives)
+		#get_node("HitSound").play()
+		AudioHandler.get_node("HitSound").play()
 		reparent(initialOrbit)
 	else:
+		AudioHandler.get_node("Song1").stop()
+		AudioHandler.get_node("Song2").stop()
+		AudioHandler.get_node("DeathSound").play()
 		get_tree().change_scene_to_file("res://scenes/title.tscn")
