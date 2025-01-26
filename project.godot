@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="BubbleGodGGJ2025"
+config/name="Systema Bubbulo"
 run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://resources/icon.svg"
+config/icon="res://resources/images/cutout suns/sun_img_b.png"
 
 [autoload]
 

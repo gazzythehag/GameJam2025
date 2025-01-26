@@ -90,8 +90,7 @@ mode = 1
 position = Vector2(-106.013, 338.801)
 loop_progress = 1.87405
 
-[node name="Player" parent="sun/orbit13" node_paths=PackedStringArray("lives_label") instance=ExtResource("6_fo7ej")]
+[node name="Player" parent="sun/orbit13" instance=ExtResource("6_fo7ej")]
 position = Vector2(355, 0)
-lives_label = NodePath("")
 
 [editable path="sun/nonorbit/moon_center"]

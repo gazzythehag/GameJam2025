@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1yt0g80jw5bm"]
+
+[ext_resource type="Script" path="res://scripts/moon.gd" id="1_h3cbn"]
+[ext_resource type="Texture2D" uid="uid://dvjijb3lxwdqa" path="res://resources/images/cutout obstacles/obstacle_img_c.png" id="2_j00e1"]
+
+[node name="moon_center" type="Node2D"]
+script = ExtResource("1_h3cbn")
+centre_colour = Color(0.233148, 0.457125, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_j00e1")
