@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cedwdrr73u64g"]
 
 [ext_resource type="Script" path="res://scripts/titlemenu.gd" id="1_lsvf5"]
-[ext_resource type="Texture2D" uid="uid://xlcs8oqgwhly" path="res://resources/images/cover_art.jpeg" id="2_hmqey"]
+[ext_resource type="Texture2D" uid="uid://xlcs8oqgwhly" path="res://resources/images/original images/cover_art.jpeg" id="2_hmqey"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
