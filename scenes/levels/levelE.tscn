@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbqkeh3ayjsib"]
+[gd_scene load_steps=13 format=3 uid="uid://dbqkeh3ayjsib"]
 
 [ext_resource type="Texture2D" uid="uid://dv67xe52rajuu" path="res://resources/images/trace backgrounds/Level_E.png" id="1_5mxcl"]
-[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_ne05t"]
+[ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_ne05t"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_oi74t"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_lin8v"]
 [ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/nodes/false_ring.tscn" id="4_7abfw"]
@@ -10,13 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://bydufvnu7b20m" path="res://resources/images/trace backgrounds/Level_E_Sun.png" id="6_benui"]
 [ext_resource type="Script" path="res://scripts/ring.gd" id="6_lgmif"]
 [ext_resource type="Texture2D" uid="uid://cvcf0nq6g7hwl" path="res://resources/images/cutout suns/Level_F_Sun.png" id="8_is2b1"]
+[ext_resource type="Texture2D" uid="uid://bw0cntjpxwsp" path="res://resources/images/weird guys/Krunkus_transparent.png" id="11_1u0va"]
+[ext_resource type="Texture2D" uid="uid://bf2g5vonwhfe2" path="res://resources/images/weird guys/krunkus.jpeg" id="12_axof2"]
 
 [node name="LevelE" type="Node2D"]
 
 [node name="score_label" parent="." instance=ExtResource("1_ne05t")]
 
 [node name="LevelImgD" type="Sprite2D" parent="."]
-position = Vector2(401, 400)
+position = Vector2(501, 500)
 scale = Vector2(0.394531, 0.394531)
 texture = ExtResource("1_5mxcl")
 
@@ -93,9 +95,18 @@ mode = 1
 position = Vector2(276.015, -250.888)
 loop_progress = 5.54544
 
-[node name="Player" parent="sun/orbit10" node_paths=PackedStringArray("lives_label") instance=ExtResource("5_w6rbg")]
+[node name="Player" parent="sun/orbit10" instance=ExtResource("5_w6rbg")]
 position = Vector2(373, 0)
-lives_label = NodePath("")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="KrunkusTransparent" type="Sprite2D" parent="Background"]
+position = Vector2(1125, 245)
+texture = ExtResource("11_1u0va")
+
+[node name="Krunkus" type="Sprite2D" parent="Background/KrunkusTransparent"]
+z_index = -1000
+texture = ExtResource("12_axof2")
 
 [editable path="sun/nonorbit/moon_center"]
 [editable path="sun/nonorbit/moon_center/orbit2/moon_center"]

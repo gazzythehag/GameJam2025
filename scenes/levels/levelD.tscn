@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://qdk8tbrmttbn"]
+[gd_scene load_steps=12 format=3 uid="uid://qdk8tbrmttbn"]
 
 [ext_resource type="Texture2D" uid="uid://brhvbuv68gorq" path="res://resources/images/trace backgrounds/Level_D.png" id="1_tn37l"]
-[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_ydebt"]
+[ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_ydebt"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_jpc11"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_de362"]
 [ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/nodes/false_ring.tscn" id="4_lgual"]
@@ -9,13 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_fo7ej"]
 [ext_resource type="Texture2D" uid="uid://b7em501jou6v" path="res://resources/images/trace backgrounds/Level_D_Sun.png" id="6_k57a3"]
 [ext_resource type="Script" path="res://scripts/ring.gd" id="7_4vwmm"]
+[ext_resource type="Texture2D" uid="uid://3ucel0uyfopn" path="res://resources/images/weird guys/Hmmmmmmmmmm transparent.png" id="10_j1y8y"]
+[ext_resource type="Texture2D" uid="uid://wwy0vk7j36ey" path="res://resources/images/weird guys/Snuffleuphagus transparent.png" id="11_7ukka"]
 
 [node name="LevelD" type="Node2D"]
 
 [node name="score_label" parent="." instance=ExtResource("1_ydebt")]
 
 [node name="LevelImgC" type="Sprite2D" parent="."]
-position = Vector2(396.5, 399.5)
+position = Vector2(496.5, 499.5)
 scale = Vector2(0.380371, 0.380371)
 texture = ExtResource("1_tn37l")
 
@@ -92,5 +94,17 @@ loop_progress = 1.87405
 
 [node name="Player" parent="sun/orbit13" instance=ExtResource("6_fo7ej")]
 position = Vector2(355, 0)
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Hmmmmmmm" type="Sprite2D" parent="Background"]
+position = Vector2(655, 106)
+rotation = 0.237365
+texture = ExtResource("10_j1y8y")
+
+[node name="Snuffleuphagus" type="Sprite2D" parent="Background"]
+position = Vector2(185, 876)
+scale = Vector2(-1, 1)
+texture = ExtResource("11_7ukka")
 
 [editable path="sun/nonorbit/moon_center"]

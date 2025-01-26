@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkqowdpbn3ndi"]
+[gd_scene load_steps=11 format=3 uid="uid://bkqowdpbn3ndi"]
 
-[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_jekw3"]
+[ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_jekw3"]
 [ext_resource type="Texture2D" uid="uid://lm2llnaocber" path="res://resources/images/trace backgrounds/Level_C.png" id="1_y6o50"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_rqa17"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_emfn0"]
@@ -9,13 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://dw6i5olr6efar" path="res://resources/images/trace backgrounds/Level_C_Planet.png" id="6_rcmb7"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_uuqm2"]
 [ext_resource type="Script" path="res://scripts/ring.gd" id="8_60ewo"]
+[ext_resource type="Texture2D" uid="uid://0x6q386ujysm" path="res://resources/images/weird guys/Blue_Guy.png" id="10_5bj76"]
 
 [node name="LevelC" type="Node2D"]
 
 [node name="score_label" parent="." instance=ExtResource("1_jekw3")]
 
 [node name="LevelImgF" type="Sprite2D" parent="."]
-position = Vector2(398.25, 398.75)
+position = Vector2(498.25, 498.75)
 scale = Vector2(0.385986, 0.385986)
 texture = ExtResource("1_y6o50")
 
@@ -91,8 +92,15 @@ orbit_radius = 358
 angular_speed = 4.0
 mode = 2
 
-[node name="Player" parent="sun/orbit7" node_paths=PackedStringArray("lives_label") instance=ExtResource("6_uuqm2")]
+[node name="Player" parent="sun/orbit7" instance=ExtResource("6_uuqm2")]
 position = Vector2(358, 0)
-lives_label = NodePath("")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Blue Guy" type="Sprite2D" parent="Background"]
+position = Vector2(299, 762)
+rotation = -0.959931
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("10_5bj76")
 
 [editable path="sun/nonorbit/moon_center"]
