@@ -37,6 +37,6 @@ func normalize_loop_progress() -> void:
 
 func is_player_too_close() -> bool:
 	var player_distance = global_position.distance_to(player.global_position)
-	print(player_distance)
+	#print(player_distance)
 	if player_distance <= player.radius + radius: return true
 	else: return false

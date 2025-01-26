@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg1t78weov6a1"]
+[gd_scene load_steps=6 format=3 uid="uid://yimoavin8dd5"]
 
-[ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/sun.tscn" id="1_pagwg"]
+[ext_resource type="PackedScene" path="res://scenes/sun.tscn" id="1_pagwg"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/moon.tscn" id="1_t8otd"]
-[ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/false_ring.tscn" id="2_d1yrw"]
+[ext_resource type="PackedScene" path="res://scenes/false_ring.tscn" id="2_d1yrw"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/ring.tscn" id="2_tk4fv"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/player.tscn" id="3_5bim7"]
 
@@ -52,4 +52,5 @@ mode = 1
 
 [node name="Player" parent="sun/orbit3" instance=ExtResource("3_5bim7")]
 position = Vector2(3.9299, -149.949)
+max_distance = 30.0
 loop_progress = 168.101

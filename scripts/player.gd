@@ -45,7 +45,6 @@ func get_closest_ring(inward: bool) -> Object:
 		if ring != get_parent():
 			#var distance = abs((ring.global_position - global_position).length() - ring.orbit_radius)
 			var distance: float = abs((ring.get_closest_pos(global_position) - global_position).length())
-			print(ring.name + "distance from player is " + str(distance))
 			if distance < closest and distance < max_distance:
 				if is_ring_valid(inward, ring):
 					closest = distance
@@ -53,9 +52,21 @@ func get_closest_ring(inward: bool) -> Object:
 	return closest_ring
 
 func is_ring_valid(inward: bool, target: Object) -> bool:
-	var parent_ring_index: int = rings_in_level.find(get_parent())
-	for i in rings_in_level.size():
-		if rings_in_level[i] == target:
-			if i < parent_ring_index and inward: return true
-			elif i > parent_ring_index and !inward: return true
-	return false
+	var dist_to_ring: float = (target.get_closest_pos(global_position) - Vector2(400,400)).length()
+	var dist_to_player: float = (global_position - Vector2(400,400)).length()
+	
+	if dist_to_player > dist_to_ring and inward:
+		return true
+	elif dist_to_player < dist_to_ring and !inward:
+		return true
+	else:
+		return false
+	
+
+#func is_ring_valid(inward: bool, target: Object) -> bool:
+#	var parent_ring_index: int = rings_in_level.find(get_parent())
+#	for i in rings_in_level.size():
+#		if rings_in_level[i] == target:
+#			if i < parent_ring_index and inward: return true
+#			elif i > parent_ring_index and !inward: return true
+#	return false

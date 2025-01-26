@@ -6,7 +6,7 @@ Orbital Frogger:
 		- Fix suborbital jumps -- DONE
 		- create some kind of "win" condition
 		- maybe have speed control
-		- implement elliptical orbits --in progress
+		- implement elliptical orbits --DONE
 	Obstacles -- in progress
 	Win State
 	Creating actual levels
