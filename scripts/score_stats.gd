@@ -19,8 +19,6 @@ func _process(delta: float) -> void:
 func damage_player() -> void:
 	player_lives -= 1
 	if player_lives > 0:
-		#lives_label.text = "Lives: " + str(lives)
-		#get_node("HitSound").play()
 		AudioHandler.get_node("HitSound").play()
 	else:
 		AudioHandler.get_node("Song1").stop()
@@ -38,16 +36,17 @@ func start_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/levels/levelA.tscn")
 
 func next_level() -> void:
+	print(get_tree().current_scene.name)
 	match get_tree().current_scene.name:
-		"levelA":
+		"LevelA":
 			get_tree().change_scene_to_file("res://scenes/levels/levelB.tscn")
-		"levelB":
+		"LevelB":
 			get_tree().change_scene_to_file("res://scenes/levels/levelC.tscn")
-		"levelC":
+		"LevelC":
 			get_tree().change_scene_to_file("res://scenes/levels/levelD.tscn")
-		"levelD":
+		"LevelD":
 			get_tree().change_scene_to_file("res://scenes/levels/levelE.tscn")
-		"levelE":
+		"LevelE":
 			get_tree().change_scene_to_file("res://scenes/levels/levelF.tscn")
-		"levelF":
+		"LevelF":
 			get_tree().change_scene_to_file("res://scenes/title.tscn") ## Maybe make a game over / win scene

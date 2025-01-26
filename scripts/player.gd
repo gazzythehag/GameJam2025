@@ -69,12 +69,9 @@ func get_closest_ring(inward: bool) -> Object:
 func is_ring_valid(inward: bool, target: Object) -> bool:
 	var dist_to_ring: float = (target.get_closest_pos(global_position) - get_viewport().get_visible_rect().size / 2).length()
 	var dist_to_player: float = (global_position - get_viewport().get_visible_rect().size / 2).length()
-	if dist_to_player > dist_to_ring and inward:
-		return true
-	elif dist_to_player < dist_to_ring and !inward:
-		return true
-	else:
-		return false
+	if dist_to_player > dist_to_ring and inward: return true
+	elif dist_to_player < dist_to_ring and !inward: return true
+	else: return false
 	
 
 #func is_ring_valid(inward: bool, target: Object) -> bool:
@@ -87,4 +84,5 @@ func is_ring_valid(inward: bool, target: Object) -> bool:
 
 func lose_life() -> void:
 	reparent(initialOrbit)
+	parent_ring = initialOrbit
 	ScoreStats.damage_player()
