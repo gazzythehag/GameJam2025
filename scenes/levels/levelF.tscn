@@ -1,16 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6tka8dyo84l"]
+[gd_scene load_steps=15 format=3 uid="uid://c6tka8dyo84l"]
 
 [ext_resource type="Texture2D" uid="uid://cobwlj8yb2pxc" path="res://resources/images/trace backgrounds/Level_F.png" id="1_4no35"]
 [ext_resource type="Texture2D" uid="uid://bcm7j8pdwyvb4" path="res://resources/images/level backgrounds/backgroundF.jpeg" id="1_gegiy"]
-[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_myuee"]
+[ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_myuee"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_60teo"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_gymuy"]
 [ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/nodes/false_ring.tscn" id="4_xt0sg"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="5_mdukn"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_lvumd"]
 [ext_resource type="Texture2D" uid="uid://d2w6jwe0xxsvg" path="res://resources/images/trace backgrounds/Level_F_Sun.png" id="6_wm5df"]
+[ext_resource type="PackedScene" uid="uid://be6s072htwlft" path="res://scenes/nodes/moonE.tscn" id="6_ychqd"]
 [ext_resource type="Texture2D" uid="uid://cbgxf5xhfrui6" path="res://resources/images/weird guys/Badonkadonk_transparent.png" id="9_6cpuq"]
+[ext_resource type="PackedScene" uid="uid://bg7cnas02cps7" path="res://scenes/nodes/moonD.tscn" id="10_1mr5d"]
 [ext_resource type="Texture2D" uid="uid://d2my6s8yceqf4" path="res://resources/images/weird guys/Badonkadonk.png" id="10_y70ke"]
+[ext_resource type="PackedScene" uid="uid://tluufs383hm3" path="res://scenes/nodes/moonB.tscn" id="11_e0trs"]
 
 [node name="LevelF" type="Node2D"]
 
@@ -32,23 +35,20 @@ hardcoded_position = true
 
 [node name="orbit9" parent="sun" instance=ExtResource("3_gymuy")]
 orbit_radius = 54
-angular_speed = 2.0
+angular_speed = 4.0
 mode = 1
 
-[node name="moon_center4" parent="sun/orbit9" instance=ExtResource("5_mdukn")]
-position = Vector2(-54, -0.0219967)
-loop_progress = 3.142
+[node name="moon_center" parent="sun/orbit9" instance=ExtResource("6_ychqd")]
+loop_progress = 0.785
 
-[node name="moon_center3" parent="sun/orbit9" instance=ExtResource("5_mdukn")]
-position = Vector2(-0.0210049, -54)
-loop_progress = 4.712
+[node name="moon_center2" parent="sun/orbit9" instance=ExtResource("6_ychqd")]
+loop_progress = 2.356
 
-[node name="moon_center" parent="sun/orbit9" instance=ExtResource("5_mdukn")]
-position = Vector2(54, 0)
+[node name="moon_center3" parent="sun/orbit9" instance=ExtResource("6_ychqd")]
+loop_progress = 3.927
 
-[node name="moon_center2" parent="sun/orbit9" instance=ExtResource("5_mdukn")]
-position = Vector2(-0.0109984, 54)
-loop_progress = 1.571
+[node name="moon_center4" parent="sun/orbit9" instance=ExtResource("6_ychqd")]
+loop_progress = 5.498
 
 [node name="nonorbit" parent="sun" groups=["rings"] instance=ExtResource("4_xt0sg")]
 orbit_radius = 102
@@ -57,7 +57,7 @@ mode = 2
 
 [node name="moon_center" parent="sun/nonorbit" instance=ExtResource("5_mdukn")]
 position = Vector2(-5.54494, -101.849)
-loop_progress = 4.658
+loop_progress = 4.712
 
 [node name="Sprite2D" parent="sun/nonorbit/moon_center" index="0"]
 position = Vector2(0, 2)
@@ -67,19 +67,22 @@ texture = ExtResource("6_wm5df")
 
 [node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("3_gymuy")]
 orbit_radius = 165
-angular_speed = 0.5
+angular_speed = 1.0
 mode = 1
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_mdukn")]
 position = Vector2(-73.5948, 147.678)
-loop_progress = 2.03312
+loop_progress = 1.571
+
+[node name="moon_center2" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_mdukn")]
+loop_progress = 4.712
 
 [node name="orbit2" parent="sun/nonorbit/moon_center" instance=ExtResource("3_gymuy")]
 orbit_radius = 46
 mode = 2
 
-[node name="moon_center" parent="sun/nonorbit/moon_center/orbit2" instance=ExtResource("5_mdukn")]
-position = Vector2(46, 0)
+[node name="moon_center" parent="sun/nonorbit/moon_center/orbit2" instance=ExtResource("10_1mr5d")]
+loop_progress = 1.571
 
 [node name="orbit3" parent="sun/nonorbit/moon_center" instance=ExtResource("3_gymuy")]
 orbit_radius = 28
@@ -91,18 +94,30 @@ orbit_radius = 296
 angular_speed = 0.5
 mode = 2
 
-[node name="moon_center" parent="sun/orbit10" instance=ExtResource("5_mdukn")]
-position = Vector2(295.884, -8.29145)
-loop_progress = 6.25517
+[node name="moon_center" parent="sun/orbit10" instance=ExtResource("11_e0trs")]
+
+[node name="moon_center2" parent="sun/orbit10" instance=ExtResource("11_e0trs")]
+loop_progress = 0.898
+
+[node name="moon_center3" parent="sun/orbit10" instance=ExtResource("11_e0trs")]
+loop_progress = 1.795
+
+[node name="moon_center4" parent="sun/orbit10" instance=ExtResource("11_e0trs")]
+loop_progress = 2.693
+
+[node name="moon_center5" parent="sun/orbit10" instance=ExtResource("11_e0trs")]
+loop_progress = 3.59
+
+[node name="moon_center6" parent="sun/orbit10" instance=ExtResource("11_e0trs")]
+loop_progress = 4.488
+
+[node name="moon_center7" parent="sun/orbit10" instance=ExtResource("11_e0trs")]
+loop_progress = 5.386
 
 [node name="orbit11" parent="sun" instance=ExtResource("3_gymuy")]
 orbit_radius = 357
 angular_speed = 0.2
 mode = 1
-
-[node name="moon_center" parent="sun/orbit11" instance=ExtResource("5_mdukn")]
-position = Vector2(57.2594, 352.378)
-loop_progress = 1.40971
 
 [node name="Player" parent="sun/orbit11" instance=ExtResource("6_lvumd")]
 position = Vector2(357, 0)
