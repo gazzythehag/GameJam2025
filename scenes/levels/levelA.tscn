@@ -1,18 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4mv0vxoqy07u"]
+[gd_scene load_steps=9 format=3 uid="uid://b80dxqm4gipb8"]
 
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="1_8yc6f"]
 [ext_resource type="Texture2D" uid="uid://d1fxqdxwjefkm" path="res://resources/images/trace backgrounds/Level_A.png" id="1_tavo3"]
-[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_yx6fb"]
+[ext_resource type="PackedScene" path="res://scenes/nodes/score_label.tscn" id="1_yx6fb"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="2_ke45q"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="3_w16ky"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="5_tb0t2"]
+[ext_resource type="Texture2D" uid="uid://cd7va7wnwl8nw" path="res://resources/images/weird guys/Garfield_transparent.png" id="7_skjo7"]
+[ext_resource type="Texture2D" uid="uid://b41x0yxyyobrq" path="res://resources/images/weird guys/Garfield.png" id="8_yrp1k"]
 
 [node name="LevelA" type="Node2D"]
 
 [node name="score_label" parent="." instance=ExtResource("1_yx6fb")]
 
 [node name="LevelImgA" type="Sprite2D" parent="."]
-position = Vector2(400, 398)
+position = Vector2(500, 498)
 scale = Vector2(0.381836, 0.381836)
 texture = ExtResource("1_tavo3")
 
@@ -91,7 +93,16 @@ mode = 1
 position = Vector2(38.3149, -347.896)
 loop_progress = 4.82208
 
-[node name="Player" parent="sun/orbit10" node_paths=PackedStringArray("lives_label") instance=ExtResource("5_tb0t2")]
+[node name="Player" parent="sun/orbit10" instance=ExtResource("5_tb0t2")]
 position = Vector2(27.9737, 348.88)
-lives_label = NodePath("")
 loop_progress = -432.049
+
+[node name="Background" type="Node" parent="."]
+
+[node name="garfield" type="Sprite2D" parent="Background"]
+position = Vector2(746, 191)
+texture = ExtResource("7_skjo7")
+
+[node name="garfield_trans" type="Sprite2D" parent="Background/garfield"]
+z_index = -1000
+texture = ExtResource("8_yrp1k")
