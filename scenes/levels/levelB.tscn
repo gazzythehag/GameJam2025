@@ -8,6 +8,12 @@
 
 [node name="LevelB" type="Node2D"]
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 591.0
+offset_top = 5.0
+offset_right = 788.0
+offset_bottom = 61.0
+
 [node name="LevelImgB" type="Sprite2D" parent="."]
 position = Vector2(407, 406)
 scale = Vector2(3.5, 3.5)
@@ -85,6 +91,7 @@ orbit_radius = 354
 angular_speed = 2.0
 mode = 1
 
-[node name="Player" parent="sun/orbit10" instance=ExtResource("5_a8ajn")]
+[node name="Player" parent="sun/orbit10" node_paths=PackedStringArray("lives_label") instance=ExtResource("5_a8ajn")]
 position = Vector2(141.522, 324.481)
+lives_label = NodePath("../../../RichTextLabel")
 loop_progress = -269.017

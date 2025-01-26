@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node2D
 class_name Moon
 
@@ -26,7 +26,7 @@ func _draw():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if is_player_too_close() and player.name != name:
-		print("Player collision detected")
+		player.lose_life()
 	normalize_loop_progress()
 
 func normalize_loop_progress() -> void:

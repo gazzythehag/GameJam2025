@@ -1,12 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbqkeh3ayjsib"]
+[gd_scene load_steps=7 format=3 uid="uid://dbqkeh3ayjsib"]
 
 [ext_resource type="Texture2D" uid="uid://dpxq52qjy3cnv" path="res://resources/images/cutout diagrams/level_img_d.png" id="1_j26ky"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_oi74t"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_lin8v"]
 [ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/nodes/false_ring.tscn" id="4_7abfw"]
+[ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="5_w6rbg"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="5_xcost"]
 
 [node name="LevelE" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 591.0
+offset_top = 5.0
+offset_right = 788.0
+offset_bottom = 61.0
 
 [node name="LevelImgD" type="Sprite2D" parent="."]
 position = Vector2(405, 402)
@@ -63,3 +70,6 @@ mode = 1
 [node name="moon_center" parent="sun/orbit10" instance=ExtResource("5_xcost")]
 position = Vector2(270.096, -245.506)
 loop_progress = 5.54544
+
+[node name="Player" parent="sun/orbit10" node_paths=PackedStringArray("lives_label") instance=ExtResource("5_w6rbg")]
+lives_label = NodePath("../../../RichTextLabel")
