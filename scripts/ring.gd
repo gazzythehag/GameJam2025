@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Node2D
 class_name OrbitRing
 
@@ -33,7 +33,7 @@ func _draw() -> void:
 	# make all the points that define an ellipse, then draw the polyline connecting em
 	for t in 1000:
 		coords_ellipse.append(get_ellipse_position(2*PI*t/1000))
-	#draw_polyline(coords_ellipse, orbit_colour, -1,true)
+	draw_polyline(coords_ellipse, orbit_colour, -1,true)
 	#draw_circle(Vector2(0,0), orbit_radius, orbit_colour, false, 1.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

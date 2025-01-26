@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbqkeh3ayjsib"]
+[gd_scene load_steps=8 format=3 uid="uid://dbqkeh3ayjsib"]
 
-[ext_resource type="Texture2D" uid="uid://dpxq52qjy3cnv" path="res://resources/images/cutout diagrams/level_img_d.png" id="1_j26ky"]
+[ext_resource type="Texture2D" uid="uid://dv67xe52rajuu" path="res://resources/images/trace backgrounds/Level_E.png" id="1_5mxcl"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_oi74t"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_lin8v"]
 [ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/nodes/false_ring.tscn" id="4_7abfw"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="5_w6rbg"]
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="5_xcost"]
+[ext_resource type="Texture2D" uid="uid://bydufvnu7b20m" path="res://resources/images/trace backgrounds/Level_E_Sun.png" id="6_benui"]
 
 [node name="LevelE" type="Node2D"]
 
@@ -16,9 +17,9 @@ offset_right = 788.0
 offset_bottom = 61.0
 
 [node name="LevelImgD" type="Sprite2D" parent="."]
-position = Vector2(405, 402)
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("1_j26ky")
+position = Vector2(401, 400)
+scale = Vector2(0.394531, 0.394531)
+texture = ExtResource("1_5mxcl")
 
 [node name="sun" parent="." instance=ExtResource("2_oi74t")]
 position = Vector2(400, 400)
@@ -35,13 +36,17 @@ orbit_radius = 102
 position = Vector2(-1.46763, -101.989)
 loop_progress = 4.698
 
+[node name="Sprite2D" parent="sun/nonorbit/moon_center" index="0"]
+scale = Vector2(0.379557, 0.379557)
+texture = ExtResource("6_benui")
+
 [node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
-orbit_radius = 191
+orbit_radius = 192
 angular_speed = 0.5
 mode = 1
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_xcost")]
-position = Vector2(-174.212, -78.3008)
+position = Vector2(-175.125, -78.7101)
 loop_progress = 3.56399
 
 [node name="orbit2" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
@@ -50,26 +55,29 @@ angular_speed = 0.54
 mode = 2
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit2" instance=ExtResource("5_xcost")]
-position = Vector2(133.78, -177.164)
+position = Vector2(133.78, -177.163)
 loop_progress = 5.35916
 
 [node name="orbit3" parent="sun/nonorbit/moon_center" instance=ExtResource("3_lin8v")]
-orbit_radius = 264
+orbit_radius = 260
 angular_speed = 0.5
 mode = 1
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit3" instance=ExtResource("5_xcost")]
-position = Vector2(262.807, 25.0722)
+position = Vector2(258.825, 24.6923)
 loop_progress = 0.0951139
 
 [node name="orbit10" parent="sun" instance=ExtResource("3_lin8v")]
-orbit_radius = 365
+orbit_radius = 373
 angular_speed = 0.1
 mode = 1
 
 [node name="moon_center" parent="sun/orbit10" instance=ExtResource("5_xcost")]
-position = Vector2(270.096, -245.506)
+position = Vector2(276.015, -250.888)
 loop_progress = 5.54544
 
 [node name="Player" parent="sun/orbit10" node_paths=PackedStringArray("lives_label") instance=ExtResource("5_w6rbg")]
+position = Vector2(373, 0)
 lives_label = NodePath("../../../RichTextLabel")
+
+[editable path="sun/nonorbit/moon_center"]
