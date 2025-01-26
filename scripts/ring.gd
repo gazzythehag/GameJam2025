@@ -1,4 +1,4 @@
-@tool
+#@tool
 extends Node2D
 class_name OrbitRing
 
@@ -24,16 +24,17 @@ func _ready() -> void:
 	ellipse_c = orbit_radius * sqrt(ellipse_a*ellipse_a - ellipse_b*ellipse_b)
 	#print(ellipse_c)
 	for moon in moons: ## set initial position of moon (if fixed, it won't be set on the orbit)
-		moon.position = Vector2(orbit_radius, 0)
+		moon.position = orbit_radius * Vector2(1, 0)
 		#moon.translate(Vector2(orbit_radius, 0))
 	set_moon_pos()
 
 func _draw() -> void:
-	var coords_ellipse : Array = []
+	pass
+	#var coords_ellipse : Array = []
 	# make all the points that define an ellipse, then draw the polyline connecting em
-	for t in 1000:
-		coords_ellipse.append(get_ellipse_position(2*PI*t/1000))
-	draw_polyline(coords_ellipse, orbit_colour, -1,true)
+	#for t in 1000:
+		#coords_ellipse.append(get_ellipse_position(2*PI*t/1000))
+	#draw_polyline(coords_ellipse, orbit_colour, -1,true)
 	#draw_circle(Vector2(0,0), orbit_radius, orbit_colour, false, 1.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,31 +56,34 @@ func move_moon(delta: float, direction: float):
 
 func set_moon_pos():
 	for moon in moons:
-		moon.position = get_ellipse_position(moon.loop_progress)
+		moon.position = orbit_radius*Vector2(cos(moon.loop_progress), sin(moon.loop_progress))
+		#moon.position = get_ellipse_position(moon.loop_progress)
 
 # Returns the closest position on this ring's ellipse to a point passed to the function
 func get_closest_pos(other_pos: Vector2) -> Vector2:
-	var line_to_pos: Vector2 = other_pos - (global_position + orbit_radius*Vector2(ellipse_h, ellipse_k) )
-	var dist: float = line_to_pos.length()
-	var angle_from_centre: float = line_to_pos.angle()
-	#var fake_position: Vector2 = orbit_radius * Vector2(ellipse_a * cos(angle_from_centre), ellipse_b * sin(angle_from_centre))
-	#var real_position = fake_position + Vector2(1,0) * ellipse_h * orbit_radius
-	#var real_angle = real_position.angle()
-	
-	#var pos = real_position + Vector2(400, 400)
-	#var pos = real_position
-	var pos = get_ellipse_position(angle_from_centre) + global_position
-	#print("furreal tho " + str(pos))
+	var line_to_pos: Vector2 = other_pos - global_position
+	var pos = global_position + line_to_pos.normalized()*orbit_radius
 	return pos
 
+# the elliptical version of the above function
+#func get_closest_pos(other_pos: Vector2) -> Vector2:
+	#var line_to_pos: Vector2 = other_pos - (global_position + orbit_radius*Vector2(ellipse_h, ellipse_k) )
+	#var dist: float = line_to_pos.length()
+	#var angle_from_centre: float = line_to_pos.angle()
+	
+	#var pos = get_ellipse_position(angle_from_centre) + global_position
+	#return pos
+	
+	
+
 # This function takes in an angle theta and then returns the x,y position on an ellipse
-func get_ellipse_position(theta: float) -> Vector2:
-	var ell_pos: Vector2 = orbit_radius * Vector2(ellipse_a * cos(theta) + ellipse_h, ellipse_b * sin(theta) + ellipse_k)
-	return ell_pos
+#func get_ellipse_position(theta: float) -> Vector2:
+#	var ell_pos: Vector2 = orbit_radius * Vector2(ellipse_a * cos(theta) + ellipse_h, ellipse_b * sin(theta) + ellipse_k)
+#	return ell_pos
 
 # Takes a position of another object and returns the angle of the vector pointing to that position
 # from the ellipse's perspective
-func get_ellipse_angle(other_pos: Vector2) -> float:
-	var line_to_pos: Vector2 = other_pos - (global_position + orbit_radius*Vector2(ellipse_h, ellipse_k) )
-	var angle_to_pos: float = line_to_pos.angle()
-	return angle_to_pos
+#func get_ellipse_angle(other_pos: Vector2) -> float:
+#	var line_to_pos: Vector2 = other_pos - (global_position + orbit_radius*Vector2(ellipse_h, ellipse_k) )
+#	var angle_to_pos: float = line_to_pos.angle()
+#	return angle_to_pos

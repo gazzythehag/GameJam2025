@@ -69,7 +69,7 @@ loop_progress = 0.0951139
 
 [node name="orbit10" parent="sun" instance=ExtResource("3_lin8v")]
 orbit_radius = 373
-angular_speed = 0.1
+angular_speed = 1.0
 mode = 1
 
 [node name="moon_center" parent="sun/orbit10" instance=ExtResource("5_xcost")]

@@ -37,14 +37,14 @@ func jump_orbit_inward():
 	#lives_label.text = "Lives: " + str(lives)
 	var closest_ring: Object = get_closest_ring(true)
 	if closest_ring != parent_ring:
-		loop_progress = closest_ring.get_ellipse_angle(global_position)
+		loop_progress = (global_position - closest_ring.global_position).angle()
 		reparent(closest_ring)
 		parent_ring = closest_ring
 
 func jump_orbit_outward():
 	var closest_ring: Object = get_closest_ring(false)
 	if closest_ring != parent_ring:
-		loop_progress = closest_ring.get_ellipse_angle(global_position)
+		loop_progress = (global_position - closest_ring.global_position).angle()
 		reparent(closest_ring)
 		parent_ring = closest_ring
 		
@@ -65,8 +65,8 @@ func get_closest_ring(inward: bool) -> Object:
 	return closest_ring
 
 func is_ring_valid(inward: bool, target: Object) -> bool:
-	var dist_to_ring: float = (target.get_closest_pos(global_position) - Vector2(400,400)).length()
-	var dist_to_player: float = (global_position - Vector2(400,400)).length()
+	var dist_to_ring: float = (target.get_closest_pos(global_position) - get_viewport().get_visible_rect().size / 2).length()
+	var dist_to_player: float = (global_position - get_viewport().get_visible_rect().size / 2).length()
 	if dist_to_player > dist_to_ring and inward:
 		return true
 	elif dist_to_player < dist_to_ring and !inward:
