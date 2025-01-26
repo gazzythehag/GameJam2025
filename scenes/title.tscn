@@ -26,4 +26,17 @@ offset_bottom = 721.0
 theme_override_font_sizes/font_size = 88
 text = "START GAME"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -267.0
+offset_right = 267.0
+offset_bottom = 77.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 55
+text = "SYSTEMA BUBBULO"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
