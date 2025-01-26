@@ -23,26 +23,20 @@ func _input(event):
 
 func jump_orbit_inward(): 
 	var closest_ring: Object = get_closest_ring(true)
-	var line_to_me = closest_ring.global_position - global_position
-	if (line_to_me.x < 0):
-		loop_progress = atan(line_to_me.y/line_to_me.x)
-	else:
-		loop_progress = atan(line_to_me.y/line_to_me.x) + PI
 	if closest_ring != parent_ring:
+		loop_progress = closest_ring.get_ellipse_angle(global_position)
 		reparent(closest_ring)
 		parent_ring = closest_ring
 
 func jump_orbit_outward():
 	var closest_ring: Object = get_closest_ring(false)
-	var line_to_me = closest_ring.global_position - global_position
-	if (line_to_me.x < 0):
-		loop_progress = atan(line_to_me.y/line_to_me.x)
-	else:
-		loop_progress = atan(line_to_me.y/line_to_me.x) + PI
 	if closest_ring != parent_ring:
+		loop_progress = closest_ring.get_ellipse_angle(global_position)
 		reparent(closest_ring)
 		parent_ring = closest_ring
-
+		
+# Returns the nearest ring within range to the player
+# If all rings are out of range, returns the parent ring (the one which the player is currently on)
 func get_closest_ring(inward: bool) -> Object:
 	var closest_ring: Object
 	var closest: float = 2000000 #temp, just trying to puzzle this out

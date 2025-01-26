@@ -10,6 +10,7 @@ class_name OrbitRing
 @export var ellipse_b: float = 1.0
 @export var ellipse_h: float = 0.0
 @export var ellipse_k: float = 0.0
+var ellipse_c: float
 ## var loop_progress: float = 0 <-- MOVED TO MOONS
 
 enum MODES { FIXED, CLOCKWISE, COUNTERCLOCKWISE }
@@ -20,6 +21,7 @@ var moons: Array:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ellipse_c = sqrt(ellipse_a*ellipse_a - ellipse_b*ellipse_b)
 	for moon in moons: ## set initial position of moon (if fixed, it won't be set on the orbit)
 		moon.position = Vector2(orbit_radius, 0)
 		#moon.translate(Vector2(orbit_radius, 0))
@@ -57,13 +59,22 @@ func set_moon_pos():
 	for moon in moons:
 		moon.position = get_ellipse_position(moon.loop_progress)
 
+# Returns the closest position on this ring's ellipse to a point passed to the function
 func get_closest_pos(other_pos: Vector2) -> Vector2:
-	var line_to_pos: Vector2 = global_position - other_pos
-	var angle_to_pos: float = PI+line_to_pos.angle()
-	var pos = get_ellipse_position(angle_to_pos) + global_position
+	var line_to_pos: Vector2 = other_pos - (global_position + orbit_radius*Vector2(ellipse_h, ellipse_k) )
+	var dist: float = line_to_pos.length()
+	var angle_from_centre: float = line_to_pos.angle()
+	var pos = get_ellipse_position(angle_from_centre) + global_position
 	return pos
 
 # This function takes in an angle theta and then returns the x,y position on an ellipse
 func get_ellipse_position(theta: float) -> Vector2:
 	var ell_pos: Vector2 = orbit_radius * Vector2(ellipse_a * cos(theta) + ellipse_h, ellipse_b * sin(theta) + ellipse_k)
 	return ell_pos
+
+# Takes a position of another object and returns the angle of the vector pointing to that position
+# from the ellipse's perspective
+func get_ellipse_angle(other_pos: Vector2) -> float:
+	var line_to_pos: Vector2 = other_pos - (global_position + orbit_radius*Vector2(ellipse_h, ellipse_k) )
+	var angle_to_pos: float = line_to_pos.angle()
+	return angle_to_pos

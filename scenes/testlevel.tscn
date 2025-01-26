@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg1t78weov6a1"]
+[gd_scene load_steps=5 format=3 uid="uid://yimoavin8dd5"]
 
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/moon.tscn" id="1_t8otd"]
-[ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/false_ring.tscn" id="2_d1yrw"]
+[ext_resource type="PackedScene" path="res://scenes/false_ring.tscn" id="2_d1yrw"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/ring.tscn" id="2_tk4fv"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/player.tscn" id="3_5bim7"]
 
@@ -13,10 +13,14 @@ position = Vector2(400, 400)
 [node name="orbit" parent="moon_center" instance=ExtResource("2_tk4fv")]
 orbit_radius = 40
 orbit_colour = Color(0, 0, 1, 1)
+ellipse_a = 1.0
+ellipse_b = 1.0
 mode = 1
 
 [node name="nonorbit" parent="moon_center" instance=ExtResource("2_d1yrw")]
 angular_speed = 1.0
+ellipse_a = 1.0
+ellipse_b = 1.0
 mode = 1
 
 [node name="moon_center" parent="moon_center/nonorbit" instance=ExtResource("1_t8otd")]
