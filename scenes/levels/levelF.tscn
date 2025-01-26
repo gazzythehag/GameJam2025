@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0tfd8nbgxwmv"]
+[gd_scene load_steps=12 format=3 uid="uid://c6tka8dyo84l"]
 
 [ext_resource type="Texture2D" uid="uid://cobwlj8yb2pxc" path="res://resources/images/trace backgrounds/Level_F.png" id="1_4no35"]
+[ext_resource type="Texture2D" uid="uid://bcm7j8pdwyvb4" path="res://resources/images/level backgrounds/backgroundF.jpeg" id="1_gegiy"]
 [ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="1_myuee"]
 [ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="2_60teo"]
 [ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="3_gymuy"]
@@ -8,18 +9,26 @@
 [ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="5_mdukn"]
 [ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="6_lvumd"]
 [ext_resource type="Texture2D" uid="uid://d2w6jwe0xxsvg" path="res://resources/images/trace backgrounds/Level_F_Sun.png" id="6_wm5df"]
+[ext_resource type="Texture2D" uid="uid://cbgxf5xhfrui6" path="res://resources/images/weird guys/Badonkadonk_transparent.png" id="9_6cpuq"]
+[ext_resource type="Texture2D" uid="uid://d2my6s8yceqf4" path="res://resources/images/weird guys/Badonkadonk.png" id="10_y70ke"]
 
 [node name="LevelF" type="Node2D"]
+
+[node name="BackgroundF" type="Sprite2D" parent="."]
+position = Vector2(491, 537)
+scale = Vector2(2, 2)
+texture = ExtResource("1_gegiy")
 
 [node name="score_label" parent="." instance=ExtResource("1_myuee")]
 
 [node name="LevelImgE" type="Sprite2D" parent="."]
-position = Vector2(399, 396.5)
+position = Vector2(499, 396.5)
 scale = Vector2(0.384766, 0.384766)
 texture = ExtResource("1_4no35")
 
 [node name="sun" parent="." instance=ExtResource("2_60teo")]
-position = Vector2(400, 400)
+position = Vector2(500, 400)
+hardcoded_position = true
 
 [node name="orbit9" parent="sun" instance=ExtResource("3_gymuy")]
 orbit_radius = 54
@@ -95,8 +104,18 @@ mode = 1
 position = Vector2(57.2594, 352.378)
 loop_progress = 1.40971
 
-[node name="Player" parent="sun/orbit11" node_paths=PackedStringArray("lives_label") instance=ExtResource("6_lvumd")]
+[node name="Player" parent="sun/orbit11" instance=ExtResource("6_lvumd")]
 position = Vector2(357, 0)
-lives_label = NodePath("")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Badonkadonk" type="Sprite2D" parent="Background"]
+position = Vector2(497, 814)
+scale = Vector2(0.771588, 0.629527)
+texture = ExtResource("9_6cpuq")
+
+[node name="SOLID badonkadonk" type="Sprite2D" parent="Background/Badonkadonk"]
+z_index = -1000
+texture = ExtResource("10_y70ke")
 
 [editable path="sun/nonorbit/moon_center"]
