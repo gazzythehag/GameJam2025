@@ -8,5 +8,5 @@ script = ExtResource("1_tr0up")
 centre_colour = Color(0.233148, 0.457125, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.04, 0.04)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_hr5a3")

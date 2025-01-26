@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cedwdrr73u64g"]
 
 [ext_resource type="Script" path="res://scripts/titlemenu.gd" id="1_lsvf5"]
-[ext_resource type="Texture2D" uid="uid://xlcs8oqgwhly" path="res://resources/images/cover_art.jpeg" id="2_hmqey"]
+[ext_resource type="Texture2D" uid="uid://xlcs8oqgwhly" path="res://resources/images/original images/cover_art.jpeg" id="2_hmqey"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -13,16 +13,23 @@ grow_vertical = 2
 script = ExtResource("1_lsvf5")
 
 [node name="CoverArt" type="Sprite2D" parent="."]
-position = Vector2(399, 258)
-scale = Vector2(1.47967, 1.3625)
+position = Vector2(500, 246)
+scale = Vector2(1.9, 1.9)
 texture = ExtResource("2_hmqey")
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 126.0
-offset_top = 592.0
-offset_right = 672.0
-offset_bottom = 721.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.0
+offset_top = -200.0
+offset_right = 273.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_font_sizes/font_size = 88
 text = "START GAME"
 
