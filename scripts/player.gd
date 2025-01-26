@@ -45,6 +45,7 @@ func get_closest_ring(inward: bool) -> Object:
 		if ring != get_parent():
 			#var distance = abs((ring.global_position - global_position).length() - ring.orbit_radius)
 			var distance: float = abs((ring.get_closest_pos(global_position) - global_position).length())
+			print(ring.name + "distance from player is " + str(distance))
 			if distance < closest and distance < max_distance:
 				if is_ring_valid(inward, ring):
 					closest = distance
