@@ -11,19 +11,19 @@
 [node name="sun" parent="." instance=ExtResource("1_pagwg")]
 position = Vector2(400, 400)
 
-[node name="orbit" parent="sun" instance=ExtResource("2_tk4fv")]
+[node name="orbit2" parent="sun" instance=ExtResource("2_tk4fv")]
 orbit_radius = 10
 orbit_colour = Color(1, 0, 0, 1)
 
-[node name="orbit2" parent="sun" instance=ExtResource("2_tk4fv")]
+[node name="orbit3" parent="sun" instance=ExtResource("2_tk4fv")]
 orbit_radius = 50
 orbit_colour = Color(0, 1, 0, 1)
 angular_speed = 1.0
 mode = 1
 
-[node name="moon_center" parent="sun/orbit2" instance=ExtResource("1_t8otd")]
-position = Vector2(-9.05102, -49.174)
-loop_progress = 4.53037
+[node name="moon_center" parent="sun/orbit3" instance=ExtResource("1_t8otd")]
+position = Vector2(21.8546, -44.9708)
+loop_progress = 5.16475
 
 [node name="nonorbit" parent="sun" instance=ExtResource("2_d1yrw")]
 orbit_colour = Color(0, 0, 0, 0.384314)
@@ -31,8 +31,8 @@ angular_speed = 1.5
 mode = 2
 
 [node name="moon_center" parent="sun/nonorbit" instance=ExtResource("1_t8otd")]
-position = Vector2(-99.3382, 11.4856)
-loop_progress = 3.02648
+position = Vector2(48.3029, -87.5604)
+loop_progress = 5.2165
 
 [node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("2_tk4fv")]
 orbit_radius = 24
@@ -41,15 +41,15 @@ angular_speed = 0.5
 mode = 1
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("1_t8otd")]
-position = Vector2(-3.14933, -23.7925)
-loop_progress = 4.58079
+position = Vector2(-4.42868, 23.5879)
+loop_progress = 1.75639
 
-[node name="orbit3" parent="sun" instance=ExtResource("2_tk4fv")]
+[node name="orbit4" parent="sun" instance=ExtResource("2_tk4fv")]
 orbit_radius = 150
 orbit_colour = Color(0, 1, 0, 1)
 angular_speed = 1.55
 mode = 1
 
-[node name="Player" parent="sun/orbit3" instance=ExtResource("3_5bim7")]
-position = Vector2(3.9299, -149.949)
-loop_progress = 168.101
+[node name="Player" parent="sun/orbit4" instance=ExtResource("3_5bim7")]
+position = Vector2(-145.427, 36.7547)
+loop_progress = 178.823

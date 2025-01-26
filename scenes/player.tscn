@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://8gchishb6nb4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_pgpta"]
+[ext_resource type="Texture2D" uid="uid://bvffnwgmde1si" path="res://resources/images/cutout suns/sun_img_a.png" id="2_5oipr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8nvum"]
-
-[node name="Player" type="StaticBody2D" groups=["player"]]
+[node name="Player" type="Node2D" groups=["player"]]
 script = ExtResource("1_pgpta")
 max_distance = 75.0
 centre_colour = Color(1, 1, 1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_8nvum")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_5oipr")

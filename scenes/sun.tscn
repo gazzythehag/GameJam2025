@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc2xk8gfd1h0c"]
+[gd_scene load_steps=4 format=3 uid="uid://bc2xk8gfd1h0c"]
 
 [ext_resource type="Script" path="res://scripts/sun.gd" id="1_5u2rh"]
+[ext_resource type="Texture2D" uid="uid://bwi61pxqbcmht" path="res://resources/images/cutout suns/sun_img_b.png" id="2_ac3p3"]
+[ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/ring.tscn" id="3_5frc2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2jin6"]
-radius = 8.60233
-
-[node name="Area2D" type="Area2D"]
+[node name="Sun" type="Node2D"]
 script = ExtResource("1_5u2rh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_2jin6")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_ac3p3")
+
+[node name="orbit" parent="." instance=ExtResource("3_5frc2")]
+orbit_radius = 15
+angular_speed = 1.0
