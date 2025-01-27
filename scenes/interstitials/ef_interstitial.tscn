@@ -33,5 +33,10 @@ offset_bottom = 1000.0
 color = Color(0, 0, 0, 1)
 
 [node name="Blackout" parent="." instance=ExtResource("2_fd5dd")]
+z_index = -1000
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1000.0
+offset_bottom = 1000.0
 script = ExtResource("3_2dxlj")
