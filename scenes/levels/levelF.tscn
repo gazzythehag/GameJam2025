@@ -50,7 +50,7 @@ loop_progress = 3.927
 [node name="moon_center4" parent="sun/orbit9" instance=ExtResource("6_ychqd")]
 loop_progress = 5.498
 
-[node name="nonorbit" parent="sun" groups=["rings"] instance=ExtResource("4_xt0sg")]
+[node name="nonorbit" parent="sun" instance=ExtResource("4_xt0sg")]
 orbit_radius = 102
 angular_speed = 2.0
 mode = 2
