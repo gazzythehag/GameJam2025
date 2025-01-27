@@ -1,7 +1,7 @@
 extends Node
 
 var game_time: float = 0
-var max_lives: int = 5
+var max_lives: int = 100
 var player_lives: int:
 	get: return player_lives
 	set(value): player_lives = value

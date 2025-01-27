@@ -45,6 +45,8 @@ mode = 1
 
 [node name="nonorbit" parent="sun" instance=ExtResource("4_civy3")]
 orbit_radius = 200
+angular_speed = 2.0
+mode = 1
 
 [node name="moon_center" parent="sun/nonorbit" instance=ExtResource("5_08i4r")]
 position = Vector2(1.1602, -199.997)
@@ -56,6 +58,7 @@ texture = ExtResource("6_rcmb7")
 
 [node name="orbit" parent="sun/nonorbit/moon_center" instance=ExtResource("3_emfn0")]
 orbit_radius = 50
+angular_speed = 1.0
 mode = 1
 
 [node name="moon_center" parent="sun/nonorbit/moon_center/orbit" instance=ExtResource("5_08i4r")]
