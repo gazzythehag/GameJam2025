@@ -40,14 +40,24 @@ func next_level() -> void:
 	print(get_tree().current_scene.name)
 	match get_tree().current_scene.name:
 		"LevelA":
+			get_tree().change_scene_to_file("res://scenes/interstitials/ab_interstitial.tscn")
+		"AB_interstitial":
 			get_tree().change_scene_to_file("res://scenes/levels/levelB.tscn")
 		"LevelB":
+			get_tree().change_scene_to_file("res://scenes/interstitials/bc_interstitial.tscn")
+		"BC_interstitial":
 			get_tree().change_scene_to_file("res://scenes/levels/levelC.tscn")
 		"LevelC":
+			get_tree().change_scene_to_file("res://scenes/interstitials/cd_interstitial.tscn")
+		"CD_interstitial":
 			get_tree().change_scene_to_file("res://scenes/levels/levelD.tscn")
 		"LevelD":
+			get_tree().change_scene_to_file("res://scenes/interstitials/de_interstitial.tscn")
+		"DE_interstitial":
 			get_tree().change_scene_to_file("res://scenes/levels/levelE.tscn")
 		"LevelE":
+			get_tree().change_scene_to_file("res://scenes/interstitials/ef_interstitial.tscn")
+		"EF_interstitial":
 			get_tree().change_scene_to_file("res://scenes/levels/levelF.tscn")
 		"LevelF":
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn") ## Maybe make a game over / win scene

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwty6pw8fwk13"]
+
+[ext_resource type="FontFile" uid="uid://dbibdicd1e78c" path="res://resources/font/BrettleySignatureRegular-RpEMo.ttf" id="1_fn173"]
+[ext_resource type="Script" path="res://scripts/interstitial.gd" id="1_u5enu"]
+[ext_resource type="PackedScene" uid="uid://b0cq5ovee2bxe" path="res://scenes/nodes/blackout.tscn" id="3_6gatu"]
+
+[node name="DE_interstitial" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_u5enu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 900.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_fn173")
+theme_override_font_sizes/normal_font_size = 100
+text = "Here comes the sun
+          Doo dum doo dum"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1000
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 1000.0
+color = Color(0, 0, 0, 1)
+
+[node name="Blackout" parent="." instance=ExtResource("3_6gatu")]
+layout_mode = 0
