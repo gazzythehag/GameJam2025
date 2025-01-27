@@ -1,7 +1,8 @@
 extends Node
 
 var game_time: float = 0
-var player_lives: int = 3:
+var max_lives: int = 1000
+var player_lives: int:
 	get: return player_lives
 	set(value): player_lives = value
 var game_playing: bool = false
@@ -27,12 +28,13 @@ func damage_player() -> void:
 
 func end_game() -> void:
 	game_playing = false
-	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	if player_lives > 0: get_tree().change_scene_to_file("res://scenes/victory.tscn")
+	else: get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	pass
 	
 func start_game() -> void:
 	game_time = 0
-	player_lives = 3
+	player_lives = max_lives
 	game_playing = true
 	get_tree().change_scene_to_file("res://scenes/levels/levelA.tscn")
 
@@ -60,7 +62,7 @@ func next_level() -> void:
 		"EF_interstitial":
 			get_tree().change_scene_to_file("res://scenes/levels/levelF.tscn")
 		"LevelF":
-			get_tree().change_scene_to_file("res://scenes/game_over.tscn") ## Maybe make a game over / win scene
+			end_game()
 
 func main_menu() -> void:
 	get_tree().change_scene_to_file("res://scenes/title.tscn")

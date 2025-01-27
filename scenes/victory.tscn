@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://c60t56se8pajq"]
+
+[ext_resource type="Script" path="res://scripts/titlemenu.gd" id="1_vu8lu"]
+[ext_resource type="Texture2D" uid="uid://bp4n5d7ep1rqr" path="res://resources/images/level backgrounds/win_background.jpeg" id="2_q5msf"]
+[ext_resource type="Script" path="res://scenes/show_win_stats.gd" id="3_5kvb6"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vu8lu")
+
+[node name="WinBackground" type="Sprite2D" parent="."]
+position = Vector2(360, 502)
+texture = ExtResource("2_q5msf")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -273.0
+offset_top = -200.0
+offset_right = 273.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 88
+text = "PLAY AGAIN"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "YOU WIN"
+script = ExtResource("3_5kvb6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.5
+offset_top = 31.0
+offset_right = 129.5
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 55
+text = "YOU WIN"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
