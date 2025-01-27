@@ -1,19 +1,9 @@
 TODO
 
-Orbital Frogger:
-	Orbital trajectories -- DONE
-	Player jumping between-- done
-		- Fix suborbital jumps -- DONE
-		- create some kind of "win" condition-- done
-		- maybe have speed control  -- DONE
-		- implement elliptical orbits --DONE
-	Obstacles -- done
-	Creating actual levels --done
-	implement the textures -- done
-	
-
-Keepy up
-bounce bubble - digital hacky sac
-
-sonar bonar
-Still not fully figured out yet but noting anyway
+g ~~
+- implement camera that always has the sun facing upward from player
+	-- ie sun always at top of viewport
+- implement classical frogger camera, with fixed perspective
+	player does not slide along the orbits
+	only half of orbit visible
+g ~~
