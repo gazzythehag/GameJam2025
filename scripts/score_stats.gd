@@ -6,6 +6,7 @@ var player_lives: int:
 	get: return player_lives
 	set(value): player_lives = value
 var game_playing: bool = false
+var classic_frogger_mode: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

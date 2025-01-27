@@ -16,6 +16,10 @@ func _ready() -> void:
 	parent_ring = get_parent()
 	initialOrbit = parent_ring
 
+func _process(delta) -> void:
+	if ScoreStats.classic_frogger_mode:
+		loop_progress = 0
+
 func _draw(): 
 	draw_circle(Vector2(0,0), radius, centre_colour)
 

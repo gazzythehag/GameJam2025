@@ -3,6 +3,6 @@ TODO
 - implement elliptical orbits
 - implement camera that always has the sun facing upward from player
 	-- ie sun always at top of viewport
-- implement classical frogger camera, with fixed perspective
+- implement classical frogger camera, with fixed perspective -- done
 	player does not slide along the orbits
 	only half of orbit visible
