@@ -7,6 +7,28 @@ var player_lives: int:
 	set(value): player_lives = value
 var game_playing: bool = false
 
+var world_one_paths: Array[String] =  ["res://scenes/levels/levelA.tscn",
+							 			"res://scenes/interstitials/ab_interstitial.tscn",
+										"res://scenes/levels/levelB.tscn",
+							 			"res://scenes/interstitials/bc_interstitial.tscn",
+										"res://scenes/levels/levelC.tscn",
+							 			"res://scenes/interstitials/cd_interstitial.tscn",
+										"res://scenes/levels/levelD.tscn",
+							 			"res://scenes/interstitials/de_interstitial.tscn",
+										"res://scenes/levels/levelE.tscn",
+							 			"res://scenes/interstitials/ef_interstitial.tscn"]
+var world_one_names: Array[String] = ["LevelA",
+										"AB_interstitial",
+										"LevelB",
+										"BC_interstitial",
+										"LevelC",
+										"CD_interstitial",
+										"LevelD",
+										"DE_interstitial",
+										"LevelE",
+										"EF_interstitial",
+										"LevelF"]
+
 # ALTERNATE CAMERA MODES
 var classic_frogger_mode: bool = false
 var alt_camera_mode: bool = false
@@ -43,30 +65,36 @@ func start_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/levels/levelA.tscn")
 
 func next_level() -> void:
-	print(get_tree().current_scene.name)
-	match get_tree().current_scene.name:
-		"LevelA":
-			get_tree().change_scene_to_file("res://scenes/interstitials/ab_interstitial.tscn")
-		"AB_interstitial":
-			get_tree().change_scene_to_file("res://scenes/levels/levelB.tscn")
-		"LevelB":
-			get_tree().change_scene_to_file("res://scenes/interstitials/bc_interstitial.tscn")
-		"BC_interstitial":
-			get_tree().change_scene_to_file("res://scenes/levels/levelC.tscn")
-		"LevelC":
-			get_tree().change_scene_to_file("res://scenes/interstitials/cd_interstitial.tscn")
-		"CD_interstitial":
-			get_tree().change_scene_to_file("res://scenes/levels/levelD.tscn")
-		"LevelD":
-			get_tree().change_scene_to_file("res://scenes/interstitials/de_interstitial.tscn")
-		"DE_interstitial":
-			get_tree().change_scene_to_file("res://scenes/levels/levelE.tscn")
-		"LevelE":
-			get_tree().change_scene_to_file("res://scenes/interstitials/ef_interstitial.tscn")
-		"EF_interstitial":
-			get_tree().change_scene_to_file("res://scenes/levels/levelF.tscn")
-		"LevelF":
-			end_game()
+	#print(get_tree().current_scene.name)
+	var scene_index = world_one_names.find(get_tree().current_scene.name)
+	if (scene_index + 1 < world_one_paths.size()):
+		print(world_one_paths[scene_index + 1])
+		get_tree().change_scene_to_file(world_one_paths[scene_index + 1])
+	else:
+		end_game()
+	#match get_tree().current_scene.name:
+		#"LevelA":
+			#get_tree().change_scene_to_file("res://scenes/interstitials/ab_interstitial.tscn")
+		#"AB_interstitial":
+			#get_tree().change_scene_to_file("res://scenes/levels/levelB.tscn")
+		#"LevelB":
+			#get_tree().change_scene_to_file("res://scenes/interstitials/bc_interstitial.tscn")
+		#"BC_interstitial":
+			#get_tree().change_scene_to_file("res://scenes/levels/levelC.tscn")
+		#"LevelC":
+			#get_tree().change_scene_to_file("res://scenes/interstitials/cd_interstitial.tscn")
+		#"CD_interstitial":
+			#get_tree().change_scene_to_file("res://scenes/levels/levelD.tscn")
+		#"LevelD":
+			#get_tree().change_scene_to_file("res://scenes/interstitials/de_interstitial.tscn")
+		#"DE_interstitial":
+			#get_tree().change_scene_to_file("res://scenes/levels/levelE.tscn")
+		#"LevelE":
+			#get_tree().change_scene_to_file("res://scenes/interstitials/ef_interstitial.tscn")
+		#"EF_interstitial":
+			#get_tree().change_scene_to_file("res://scenes/levels/levelF.tscn")
+		#"LevelF":
+			#end_game()
 
 func main_menu() -> void:
 	get_tree().change_scene_to_file("res://scenes/title.tscn")
