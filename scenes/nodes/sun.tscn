@@ -18,3 +18,4 @@ orbit_radius = 15
 angular_speed = 1.0
 
 [node name="Blackout" parent="." instance=ExtResource("4_o8tx8")]
+visible = false

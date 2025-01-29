@@ -9,12 +9,25 @@ var parent_ring: Object
 var lives: int = 3
 var initialOrbit: Object
 
+var camera: Object
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rings_in_level = get_tree().get_nodes_in_group("rings") ## gets an array of all object in rings group
 	## if a ring is not in the group it is not counted as interactable
 	parent_ring = get_parent()
 	initialOrbit = parent_ring
+	for child in get_children():
+		if child.name == "Camera2D":
+			camera = child
+	if not ScoreStats.alt_camera_mode: camera.free()
+	#else: camera.set_process(false)
+func _process(delta) -> void:
+	if ScoreStats.classic_frogger_mode:
+		loop_progress = 0
+	if ScoreStats.alt_camera_mode:
+		look_at(Vector2(500, 500))
+		rotate(1.570796)
 
 func _draw(): 
 	draw_circle(Vector2(0,0), radius, centre_colour)

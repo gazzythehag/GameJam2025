@@ -1,0 +1,160 @@
+[gd_scene load_steps=15 format=3 uid="uid://bud4ocdamy10f"]
+
+[ext_resource type="Texture2D" uid="uid://dlhxmrmmdntn7" path="res://resources/images/level backgrounds/backgroundD.jpeg" id="1_fqujo"]
+[ext_resource type="PackedScene" uid="uid://bbg2354mphllx" path="res://scenes/nodes/score_label.tscn" id="2_l5qiy"]
+[ext_resource type="Texture2D" uid="uid://brhvbuv68gorq" path="res://resources/images/trace backgrounds/Level_D.png" id="3_w743n"]
+[ext_resource type="PackedScene" uid="uid://bc2xk8gfd1h0c" path="res://scenes/nodes/sun.tscn" id="4_gus8j"]
+[ext_resource type="PackedScene" uid="uid://dsdls4tnexgo8" path="res://scenes/nodes/ring.tscn" id="5_u2rku"]
+[ext_resource type="PackedScene" uid="uid://b23x2plodukjy" path="res://scenes/nodes/false_ring.tscn" id="6_oqtxc"]
+[ext_resource type="PackedScene" uid="uid://m2kjs1qhcast" path="res://scenes/nodes/moon.tscn" id="7_scclt"]
+[ext_resource type="Texture2D" uid="uid://b7em501jou6v" path="res://resources/images/trace backgrounds/Level_D_Sun.png" id="8_u0r00"]
+[ext_resource type="PackedScene" uid="uid://d1yt0g80jw5bm" path="res://scenes/nodes/moonC.tscn" id="9_nvoxh"]
+[ext_resource type="Script" path="res://scripts/ring.gd" id="10_poc8y"]
+[ext_resource type="PackedScene" uid="uid://tluufs383hm3" path="res://scenes/nodes/moonB.tscn" id="11_b5xeh"]
+[ext_resource type="PackedScene" uid="uid://8gchishb6nb4" path="res://scenes/nodes/player.tscn" id="12_of2yn"]
+[ext_resource type="Texture2D" uid="uid://3ucel0uyfopn" path="res://resources/images/weird guys/Hmmmmmmmmmm transparent.png" id="13_6xd1t"]
+[ext_resource type="Texture2D" uid="uid://wwy0vk7j36ey" path="res://resources/images/weird guys/Snuffleuphagus transparent.png" id="14_18v6d"]
+
+[node name="LevelD" type="Node2D"]
+
+[node name="BackgroundD" type="Sprite2D" parent="."]
+position = Vector2(512, 328)
+scale = Vector2(2.1, 2.1)
+texture = ExtResource("1_fqujo")
+
+[node name="score_label" parent="." instance=ExtResource("2_l5qiy")]
+
+[node name="LevelImgC" type="Sprite2D" parent="."]
+position = Vector2(496.5, 499.5)
+scale = Vector2(0.380371, 0.380371)
+texture = ExtResource("3_w743n")
+
+[node name="sun" parent="." instance=ExtResource("4_gus8j")]
+position = Vector2(500, 500)
+
+[node name="orbit9" parent="sun" instance=ExtResource("5_u2rku")]
+orbit_radius = 54
+angular_speed = 2.0
+mode = 1
+
+[node name="nonorbit" parent="sun" instance=ExtResource("6_oqtxc")]
+orbit_radius = 158
+angular_speed = 0.2
+mode = 2
+
+[node name="moon_center" parent="sun/nonorbit" instance=ExtResource("7_scclt")]
+position = Vector2(-58.4475, -146.792)
+loop_progress = 4.33347
+
+[node name="Sprite2D" parent="sun/nonorbit/moon_center" index="0"]
+scale = Vector2(0.378906, 0.378906)
+texture = ExtResource("8_u0r00")
+
+[node name="morbit1" parent="sun/nonorbit/moon_center" instance=ExtResource("5_u2rku")]
+orbit_radius = 76
+angular_speed = 1.0
+mode = 1
+
+[node name="moon_center2" parent="sun/nonorbit/moon_center/morbit1" instance=ExtResource("9_nvoxh")]
+position = Vector2(65.4795, 38.5803)
+loop_progress = 3.142
+
+[node name="moon_center" parent="sun/nonorbit/moon_center/morbit1" instance=ExtResource("9_nvoxh")]
+
+[node name="morbit2" type="Node2D" parent="sun/nonorbit/moon_center"]
+script = ExtResource("10_poc8y")
+orbit_radius = 45
+mode = 2
+
+[node name="orbit10" parent="sun" instance=ExtResource("5_u2rku")]
+orbit_radius = 251
+angular_speed = 2.5
+mode = 1
+
+[node name="moon_center" parent="sun/orbit10" instance=ExtResource("11_b5xeh")]
+
+[node name="moon_center2" parent="sun/orbit10" instance=ExtResource("11_b5xeh")]
+loop_progress = 2.094
+
+[node name="moon_center3" parent="sun/orbit10" instance=ExtResource("11_b5xeh")]
+loop_progress = 4.189
+
+[node name="orbit11" parent="sun" instance=ExtResource("5_u2rku")]
+orbit_radius = 280
+angular_speed = 0.25
+mode = 2
+
+[node name="moon_center" parent="sun/orbit11" instance=ExtResource("7_scclt")]
+position = Vector2(62.0383, 273.041)
+
+[node name="moon_center2" parent="sun/orbit11" instance=ExtResource("7_scclt")]
+position = Vector2(-269.997, 74.1736)
+loop_progress = 1.257
+
+[node name="moon_center3" parent="sun/orbit11" instance=ExtResource("7_scclt")]
+position = Vector2(-81.3466, 267.923)
+loop_progress = 2.513
+
+[node name="moon_center4" parent="sun/orbit11" instance=ExtResource("7_scclt")]
+position = Vector2(205.774, -189.887)
+loop_progress = 3.77
+
+[node name="moon_center5" parent="sun/orbit11" instance=ExtResource("7_scclt")]
+position = Vector2(-42.1261, -276.813)
+loop_progress = 5.027
+
+[node name="orbit12" parent="sun" instance=ExtResource("5_u2rku")]
+orbit_radius = 310
+angular_speed = 2.0
+mode = 1
+
+[node name="moon_center" parent="sun/orbit12" instance=ExtResource("11_b5xeh")]
+position = Vector2(-303.468, -63.3043)
+loop_progress = 3.34725
+
+[node name="moon_center2" parent="sun/orbit12" instance=ExtResource("11_b5xeh")]
+position = Vector2(-139.604, -276.786)
+loop_progress = 4.24525
+
+[node name="moon_center3" parent="sun/orbit12" instance=ExtResource("11_b5xeh")]
+position = Vector2(129.19, -281.798)
+loop_progress = 5.14225
+
+[node name="moon_center4" parent="sun/orbit12" instance=ExtResource("11_b5xeh")]
+position = Vector2(300.897, -74.5723)
+loop_progress = 6.04025
+
+[node name="moon_center5" parent="sun/orbit12" instance=ExtResource("11_b5xeh")]
+position = Vector2(246.022, 188.609)
+loop_progress = 0.654061
+
+[node name="moon_center6" parent="sun/orbit12" instance=ExtResource("11_b5xeh")]
+position = Vector2(5.80746, 309.946)
+loop_progress = 1.55206
+
+[node name="moon_center7" parent="sun/orbit12" instance=ExtResource("11_b5xeh")]
+position = Vector2(-238.784, 197.692)
+loop_progress = 2.45006
+
+[node name="orbit13" parent="sun" instance=ExtResource("5_u2rku")]
+orbit_radius = 355
+angular_speed = 0.1
+mode = 1
+
+[node name="Player" parent="sun/orbit13" instance=ExtResource("12_of2yn")]
+position = Vector2(355, 0)
+rotation = 0.0
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Hmmmmmmm" type="Sprite2D" parent="Background"]
+position = Vector2(655, 106)
+rotation = 0.237365
+texture = ExtResource("13_6xd1t")
+
+[node name="Snuffleuphagus" type="Sprite2D" parent="Background"]
+position = Vector2(191, 906)
+scale = Vector2(-1, 1)
+texture = ExtResource("14_18v6d")
+
+[editable path="sun/nonorbit/moon_center"]
