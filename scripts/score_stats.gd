@@ -6,7 +6,10 @@ var player_lives: int:
 	get: return player_lives
 	set(value): player_lives = value
 var game_playing: bool = false
-var classic_frogger_mode: bool = true
+
+# ALTERNATE CAMERA MODES
+var classic_frogger_mode: bool = false
+var alt_camera_mode: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

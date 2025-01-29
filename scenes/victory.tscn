@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/titlemenu.gd" id="1_vu8lu"]
 [ext_resource type="Texture2D" uid="uid://bp4n5d7ep1rqr" path="res://resources/images/level backgrounds/win_background.jpeg" id="2_q5msf"]
-[ext_resource type="Script" path="res://scenes/show_win_stats.gd" id="3_5kvb6"]
+[ext_resource type="Script" path="res://scripts/show_win_stats.gd" id="3_5kvb6"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
