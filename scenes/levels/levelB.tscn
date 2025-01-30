@@ -124,6 +124,7 @@ mode = 1
 
 [node name="Player" parent="sun/orbit10" instance=ExtResource("5_a8ajn")]
 position = Vector2(141.377, 324.544)
+rotation = 0.0
 loop_progress = -269.017
 
 [node name="Backgrounds" type="Node" parent="."]

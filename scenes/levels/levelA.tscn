@@ -118,6 +118,7 @@ mode = 1
 
 [node name="Player" parent="sun/orbit10" instance=ExtResource("5_tb0t2")]
 position = Vector2(27.9737, 348.88)
+rotation = 0.0
 loop_progress = -432.049
 
 [node name="Background" type="Node" parent="."]

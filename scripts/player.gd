@@ -25,9 +25,9 @@ func _ready() -> void:
 func _process(delta) -> void:
 	if ScoreStats.classic_frogger_mode:
 		loop_progress = 0
-	if ScoreStats.alt_camera_mode:
-		look_at(Vector2(500, 500))
-		rotate(1.570796)
+	#if ScoreStats.alt_camera_mode:
+	look_at(Vector2(500, 500))
+	rotate(1.570796)
 
 func _draw(): 
 	draw_circle(Vector2(0,0), radius, centre_colour)

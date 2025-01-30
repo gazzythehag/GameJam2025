@@ -131,6 +131,7 @@ mode = 2
 
 [node name="Player" parent="sun/orbit7" instance=ExtResource("6_uuqm2")]
 position = Vector2(358, 0)
+rotation = 0.0
 
 [node name="Background" type="Node" parent="."]
 
